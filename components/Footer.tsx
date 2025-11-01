@@ -7,7 +7,7 @@ export function Footer() {
     <footer className="bg-cream pt-3 pb-4 md:py-8 border-t border-brownDeep/10 shadow-[0_-1px_2px_0_rgb(68,10,9,0.05)]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center text-brownDeep">
-          <div className="flex flex-col items-center justify-center gap-1.5 md:flex-row md:gap-6 text-xs md:text-base leading-relaxed">
+          <div className="flex flex-col items-center justify-center gap-2 md:flex-row md:gap-6 text-xs md:text-base leading-relaxed">
             <a
               href="mailto:hello@greenpointfacialist.com"
               className="hover:text-olive transition-colors duration-200"

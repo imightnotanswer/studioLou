@@ -12,7 +12,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
   return (
     <div className={(isHomepage || isBookingPage) ? 'h-screen flex flex-col overflow-hidden' : 'min-h-screen flex flex-col'}>
       <Header />
-      <main className={(isHomepage || isBookingPage) ? 'flex-1 flex items-center overflow-hidden w-full' : 'flex-grow'}>
+      <main className={(isHomepage || isBookingPage) ? 'flex-1 flex items-center overflow-hidden w-full min-h-0' : 'flex-grow'}>
         {children}
       </main>
       <Footer />
