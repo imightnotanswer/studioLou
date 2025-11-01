@@ -43,13 +43,13 @@ export function Header() {
       }`}
     >
       <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-center items-center h-14 md:h-20">
-          <div className="flex gap-6 md:gap-8">
+        <div className="flex justify-center items-center h-12 md:h-20">
+          <div className="flex gap-3 md:gap-8">
             {navLinks.map((link) => (
               <Link
                 key={link.href}
                 href={link.href}
-                className={`text-sm md:text-base font-accent uppercase tracking-wide transition-colors duration-200 ${
+                className={`text-xs md:text-base font-accent uppercase tracking-wide transition-colors duration-200 ${
                   isActive(link.href)
                     ? 'text-olive border-b-2 border-olive'
                     : 'text-brownDeep hover:text-olive'
