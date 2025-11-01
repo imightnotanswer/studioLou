@@ -43,7 +43,7 @@ export function Header() {
       }`}
     >
       <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-center items-center h-16 md:h-20">
+        <div className="flex justify-center items-center h-14 md:h-20">
           <div className="flex gap-6 md:gap-8">
             {navLinks.map((link) => (
               <Link

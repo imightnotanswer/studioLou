@@ -4,10 +4,10 @@ import Link from 'next/link'
 
 export function Footer() {
   return (
-    <footer className="bg-cream pt-8 pb-12 md:py-8 border-t border-brownDeep/10 shadow-[0_-1px_2px_0_rgb(68,10,9,0.05)]">
+    <footer className="bg-cream pt-4 pb-6 md:py-8 border-t border-brownDeep/10 shadow-[0_-1px_2px_0_rgb(68,10,9,0.05)]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center text-brownDeep">
-          <div className="flex flex-col items-center justify-center gap-4 md:flex-row md:gap-6 text-sm md:text-base leading-relaxed">
+          <div className="flex flex-col items-center justify-center gap-2 md:flex-row md:gap-6 text-sm md:text-base leading-relaxed">
             <a
               href="mailto:hello@greenpointfacialist.com"
               className="hover:text-olive transition-colors duration-200"
