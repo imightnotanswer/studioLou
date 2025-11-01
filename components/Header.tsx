@@ -7,6 +7,7 @@ import { useState, useEffect } from 'react'
 export function Header() {
   const pathname = usePathname()
   const [scrolled, setScrolled] = useState(false)
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
   const isHomepage = pathname === '/'
 
   useEffect(() => {
@@ -16,6 +17,11 @@ export function Header() {
     window.addEventListener('scroll', handleScroll)
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
+
+  // Close mobile menu when route changes
+  useEffect(() => {
+    setIsMobileMenuOpen(false)
+  }, [pathname])
 
   const navLinks = [
     { href: '/', label: 'HOME' },
@@ -36,32 +42,87 @@ export function Header() {
 
   return (
     <header
-      className={`sticky top-0 z-50 transition-all duration-300 ${
-        isHomepage && !scrolled
-          ? 'bg-transparent'
-          : 'bg-cream shadow-sm'
-      }`}
+      className={`sticky top-0 z-50 transition-all duration-300 ${isHomepage && !scrolled
+        ? 'bg-transparent'
+        : 'bg-cream shadow-sm'
+        }`}
     >
       <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-center items-center h-10 md:h-20">
-          <div className="flex gap-1.5 md:gap-8">
+          {/* Desktop Navigation */}
+          <div className="hidden md:flex gap-8">
             {navLinks.map((link) => (
               <Link
                 key={link.href}
                 href={link.href}
-                className={`text-xs md:text-base font-accent uppercase tracking-wide transition-colors duration-200 ${
-                  isActive(link.href)
-                    ? 'text-olive border-b-2 border-olive'
-                    : 'text-brownDeep hover:text-olive'
-                }`}
+                className={`text-base font-accent uppercase tracking-wide transition-colors duration-200 ${isActive(link.href)
+                  ? 'text-olive border-b-2 border-olive'
+                  : 'text-brownDeep hover:text-olive'
+                  }`}
               >
                 {link.label}
               </Link>
             ))}
+          </div>
+
+          {/* Mobile Navigation */}
+          <div className="md:hidden w-full flex justify-end items-center">
+            {/* Hamburger Button */}
+            <button
+              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+              className="flex items-center gap-2 p-2 text-brownDeep hover:text-olive transition-all duration-300"
+              aria-label="Toggle mobile menu"
+            >
+              <svg
+                className={`w-6 h-6 transition-transform duration-300 ${isMobileMenuOpen ? 'rotate-90' : 'rotate-0'}`}
+                fill="none"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                {isMobileMenuOpen ? (
+                  // X icon when menu is open
+                  <path d="M6 18L18 6M6 6l12 12" />
+                ) : (
+                  // Hamburger icon when menu is closed
+                  <path d="M4 6h16M4 12h16M4 18h16" />
+                )}
+              </svg>
+              <span className="text-xs font-accent uppercase tracking-wide">MENU</span>
+            </button>
+
+            {/* Mobile Menu Dropdown */}
+            <div
+              className={`absolute top-full left-0 right-0 bg-cream shadow-lg border-t border-brownDeep/10 overflow-hidden transition-all duration-300 ease-out ${isMobileMenuOpen
+                  ? 'max-h-96 opacity-100'
+                  : 'max-h-0 opacity-0'
+                }`}
+            >
+              <div className="py-4">
+                {navLinks.map((link, index) => (
+                  <Link
+                    key={link.href}
+                    href={link.href}
+                    className={`block px-6 py-3 text-sm font-accent uppercase tracking-wide transition-all duration-300 ${isActive(link.href)
+                        ? 'text-olive bg-cream/50 border-l-4 border-olive'
+                        : 'text-brownDeep hover:text-olive hover:bg-cream/30'
+                      }`}
+                    style={{
+                      animation: isMobileMenuOpen
+                        ? `slideIn 0.4s ease-out ${index * 0.05}s both`
+                        : 'none',
+                    }}
+                  >
+                    {link.label}
+                  </Link>
+                ))}
+              </div>
+            </div>
           </div>
         </div>
       </nav>
     </header>
   )
 }
-
