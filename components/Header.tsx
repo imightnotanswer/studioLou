@@ -2,13 +2,14 @@
 
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 
 export function Header() {
   const pathname = usePathname()
   const [scrolled, setScrolled] = useState(false)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
   const isHomepage = pathname === '/'
+  const mobileMenuRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
     const handleScroll = () => {
@@ -22,6 +23,23 @@ export function Header() {
   useEffect(() => {
     setIsMobileMenuOpen(false)
   }, [pathname])
+
+  // Close mobile menu when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (isMobileMenuOpen && mobileMenuRef.current && !mobileMenuRef.current.contains(event.target as Node)) {
+        setIsMobileMenuOpen(false)
+      }
+    }
+
+    if (isMobileMenuOpen) {
+      document.addEventListener('mousedown', handleClickOutside)
+    }
+
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside)
+    }
+  }, [isMobileMenuOpen])
 
   const navLinks = [
     { href: '/', label: 'HOME' },
@@ -66,7 +84,7 @@ export function Header() {
           </div>
 
           {/* Mobile Navigation */}
-          <div className="md:hidden w-full flex justify-end items-center">
+          <div ref={mobileMenuRef} className="md:hidden w-full flex justify-end items-center">
             {/* Hamburger Button */}
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
@@ -96,8 +114,8 @@ export function Header() {
             {/* Mobile Menu Dropdown */}
             <div
               className={`absolute top-full left-0 right-0 bg-cream shadow-lg border-t border-brownDeep/10 overflow-hidden transition-all duration-300 ease-out ${isMobileMenuOpen
-                  ? 'max-h-96 opacity-100'
-                  : 'max-h-0 opacity-0'
+                ? 'max-h-96 opacity-100'
+                : 'max-h-0 opacity-0'
                 }`}
             >
               <div className="py-4">
@@ -106,8 +124,8 @@ export function Header() {
                     key={link.href}
                     href={link.href}
                     className={`block px-6 py-3 text-sm font-accent uppercase tracking-wide transition-all duration-300 ${isActive(link.href)
-                        ? 'text-olive bg-cream/50 border-l-4 border-olive'
-                        : 'text-brownDeep hover:text-olive hover:bg-cream/30'
+                      ? 'text-olive bg-cream/50 border-l-4 border-olive'
+                      : 'text-brownDeep hover:text-olive hover:bg-cream/30'
                       }`}
                     style={{
                       animation: isMobileMenuOpen

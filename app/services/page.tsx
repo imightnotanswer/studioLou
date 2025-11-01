@@ -111,7 +111,7 @@ export default function ServicesPage() {
           ))}
         </div>
 
-        <div className="mt-12 md:mt-16 pt-8 border-t border-brownDeep">
+        <div className="mt-12 md:mt-16 pt-8">
           <Button href="/booking">BOOK NOW</Button>
         </div>
       </div>
