@@ -43,8 +43,8 @@ export function Header() {
       }`}
     >
       <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-center items-center h-12 md:h-20">
-          <div className="flex gap-2 md:gap-8">
+        <div className="flex justify-center items-center h-10 md:h-20">
+          <div className="flex gap-1.5 md:gap-8">
             {navLinks.map((link) => (
               <Link
                 key={link.href}
