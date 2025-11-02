@@ -18,6 +18,7 @@ uniform vec2 mouse;
 uniform vec2 resolution;
 uniform float time;
 uniform int frame;
+uniform float mouseActive;
 varying vec2 vUv;
 
 const float delta = 1.4;  
@@ -59,7 +60,7 @@ void main() {
     if(mouse.x > 0.0) {
         float dist = distance(uv, mouseUV);
         if(dist <= 0.02) {
-            pressure += 2.0 * (1.0 - dist / 0.02);
+            pressure += 2.0 * (1.0 - dist / 0.02) * mouseActive;
         }
     }
     
@@ -116,6 +117,7 @@ export default function WaterRippleBackground() {
     
     const mouse = new THREE.Vector2()
     let frame = 0
+    let lastMouseMoveTime = 0
 
     const width = container.clientWidth
     const height = container.clientHeight
@@ -141,6 +143,7 @@ export default function WaterRippleBackground() {
         resolution: { value: new THREE.Vector2(pixelWidth, pixelHeight) },
         time: { value: 0 },
         frame: { value: 0 },
+        mouseActive: { value: 1.0 },
       },
       vertexShader: simulationVertexShader,
       fragmentShader: simulationFragmentShader,
@@ -209,6 +212,7 @@ export default function WaterRippleBackground() {
       const bounds = container.getBoundingClientRect()
       mouse.x = (e.clientX - bounds.left) * window.devicePixelRatio
       mouse.y = (bounds.height - (e.clientY - bounds.top)) * window.devicePixelRatio
+      lastMouseMoveTime = performance.now()
     }
 
     const handleMouseLeave = () => {
@@ -223,6 +227,17 @@ export default function WaterRippleBackground() {
     const animate = () => {
       simMaterial.uniforms.frame.value = frame++
       simMaterial.uniforms.time.value = performance.now() / 1000
+
+      // Calculate fade based on time since last mouse movement
+      const timeSinceMouseMove = (performance.now() - lastMouseMoveTime) / 1000
+      if (mouse.x > 0 && timeSinceMouseMove > 0.5) {
+        // Fade out over 0.5 seconds
+        const fadeDuration = 0.5
+        const fadeProgress = Math.min((timeSinceMouseMove - 0.5) / fadeDuration, 1.0)
+        simMaterial.uniforms.mouseActive.value = 1.0 - fadeProgress
+      } else {
+        simMaterial.uniforms.mouseActive.value = 1.0
+      }
 
       simMaterial.uniforms.textureA.value = rtA.texture
       renderer.setRenderTarget(rtB)
