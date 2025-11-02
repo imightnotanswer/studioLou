@@ -51,11 +51,11 @@ export default function WaterBackground() {
       uMouse: { value: new THREE.Vector2(-1, -1) },
       uMouseVelocity: { value: new THREE.Vector2(0, 0) },
       uResolution: { value: new THREE.Vector2(size, size) },
-      uTexture: { value: null }
+      uTexture: { value: null as THREE.Texture | null }
     }
 
     const uniformsRender = {
-      uTexture: { value: null },
+      uTexture: { value: null as THREE.Texture | null },
       uTime: { value: 0 },
       uResolution: { value: new THREE.Vector2(1, 1) }
     }
