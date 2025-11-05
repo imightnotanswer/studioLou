@@ -16,14 +16,18 @@ export default function ServicesPage() {
       durationOptions: [
         {
           duration: '60 minutes',
-          description: `60 minutes | This comprehensive hour-long facial is the foundation of 'The Edit.' Customized exfoliation, extractions (as needed), tension-relieving facial massage and/or manual lymphatic drainage, regenerative décolleté care and a targeted treatment mask are included in this well rounded facial to effectively address your goals.`,
-          whoFor: `For anyone seeking an effective yet restorative facial experience - perfect as a seasonal reset, regular maintenance facial, or introduction to Greenpoint Facialist treatments. This facial is ideal for skin showing signs of congestion, dullness, mild dehydration, or uneven texture and tone. It's designed to deliver visible results and a sense of calm and renewal, whether your skin needs a fresh start or a regular dose of balance and vitality.`,
+          description: (
+            <>
+              <strong>60 minutes |</strong> This comprehensive hour-long facial is the foundation of ‘The Edit.’ Customized exfoliation, extractions (as needed), techniques that may include tension-relieving facial massage and manual lymphatic drainage, regenerative décolleté care, and a targeted treatment mask are included in this well-rounded facial to effectively address your goals.
+            </>
+          ),
+          whoFor: `For anyone seeking an effective yet restorative facial experience - perfect as a seasonal reset, regular maintenance facial, or introduction to Greenpoint Facialist treatments. This facial is ideal for skin showing signs of congestion, breakouts, dullness, mild dehydration, or uneven texture and tone. It’s designed to deliver visible results and a sense of calm and renewal, whether your skin needs a fresh start or a regular dose of balance and vitality.`,
         },
         {
           duration: '90 minutes',
           description: (
             <>
-              90 minutes | With 30 additional minutes, advanced technologies include a lifting <strong>microcurrent treatment</strong> and <strong>LED light therapy</strong> with a peptide enhancement to encourage tone, cellular renewal, and boost long-term skin vitality. Additional upgraded skin treatments may include a clinical <strong>alginate treatment mask</strong> or an extended focus on <strong>sculpting facial massage</strong> and <strong>manual lymphatic drainage</strong>.
+              <strong>90 minutes |</strong> With 30 additional minutes, two advanced technologies are included; a <strong>lifting microcurrent treatment</strong> and <strong>LED light therapy with a peptide enhancement</strong> to encourage tone, cellular renewal, and boost long-term skin vitality. Additional upgraded skin treatments may include a clinical <strong>alginate treatment mask</strong> or an extended focus on <strong>sculpting facial massage</strong> and <strong>manual lymphatic drainage</strong>.
             </>
           ),
           whoFor: `For anyone looking for an advanced, luxe facial that delivers both visible results and a restorative experience. Ideal for skin showing early signs of laxity, dullness, or fatigue, and for anyone looking to maintain firmness through advanced, non-invasive technology combined with botanical skincare.`,
@@ -56,12 +60,9 @@ export default function ServicesPage() {
           <h1 className="font-heading text-3xl md:text-4xl lg:text-5xl font-bold text-blueSoft mb-6">
             Facial Services
           </h1>
-          <div className="space-y-4 text-brownDeep leading-relaxed max-w-3xl">
+          <div className="text-brownDeep leading-relaxed max-w-3xl">
             <p>
-              Every Greenpoint Facialist treatment is an intentional blend of results-driven care and restorative ritual. 
-            </p>
-            <p>
-              Each service is fully tailored to meet your skin's current mood. Your facial will feature luxurious, bioactive botanical skincare that is thoughtfully paired with select clinical formulas and advanced technologies to achieve visible results. Intentional touch and massage are the heart of every treatment, while functional aromatherapy deepens the sensory experience and supports overall balance. All services can be thoughtfully tailored to accommodate pregnancy and sensitivity, so you can feel nurtured, supported, and radiant in your skin.
+              Greenpoint Facialist treatments are an intentional blend of results-driven care and restorative ritual. Each service is fully tailored to meet your skin's current mood. Your facial will feature luxurious, bioactive botanical skincare that is thoughtfully paired with select clinical formulas and advanced technologies to achieve visible results. Intentional touch and massage are the heart of every treatment, while functional aromatherapy deepens the sensory experience and supports overall balance. All services can be thoughtfully tailored to accommodate pregnancy and sensitivity, so you can feel nurtured, supported, and radiant in your skin.
             </p>
           </div>
           <div className="mt-8">
