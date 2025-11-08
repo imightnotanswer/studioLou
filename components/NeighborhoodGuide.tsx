@@ -42,7 +42,7 @@ export default function NeighborhoodGuide({ spots }: NeighborhoodGuideProps) {
                             return (
                                 <p
                                     key={spot.name}
-                                    className={`mb-0 transition-colors duration-200 ${isActive ? 'text-orangeBurnt' : ''
+                                    className={`mb-0 transition-colors duration-200 ${isActive ? 'text-olive font-semibold' : ''
                                         }`}
                                 >
                                     {spot.name}

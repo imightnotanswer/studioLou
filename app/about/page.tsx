@@ -98,7 +98,7 @@ export default function AboutPage() {
           </section>
 
           <section className="space-y-6 pt-10 border-t border-brownDeep">
-            <h2 className="font-heading text-2xl md:text-3xl font-bold text-brownDeep text-center md:text-left">
+            <h2 className="font-heading text-xl md:text-3xl font-bold text-brownDeep text-center md:text-left">
               A Greenpoint Facialist guide to the neighborhood
             </h2>
             <p className="text-brownDeep/80 text-sm md:text-base leading-relaxed max-w-2xl mx-auto md:mx-0">
