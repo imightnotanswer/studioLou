@@ -288,7 +288,15 @@ export function NeighborhoodMap({
   }
 
   const leafletComponents = reactLeaflet as typeof import('react-leaflet')
-  const { MapContainer, Marker, Popup, TileLayer, Tooltip } = leafletComponents
+  const { MapContainer, Marker, Popup, TileLayer, Tooltip, useMapEvent } = leafletComponents
+
+  const MapInteractionHandler = () => {
+    useMapEvent('click', () => {
+      onSpotHoverChange?.(null)
+      onSpotSelect?.(null)
+    })
+    return null
+  }
 
   return (
     <div className="relative w-full max-w-xl aspect-square mx-auto rounded-3xl border border-brownDeep/20 overflow-hidden shadow-inner md:max-w-md lg:max-w-sm">
@@ -300,13 +308,8 @@ export function NeighborhoodMap({
         ref={mapRef}
         preferCanvas
         attributionControl={false}
-        eventHandlers={{
-          click: () => {
-            onSpotHoverChange?.(null)
-            onSpotSelect?.(null)
-          },
-        }}
       >
+        <MapInteractionHandler />
         <TileLayer attribution={TILE_ATTRIBUTION} url={TILE_URL} />
         {spotsWithIcons.map((spot) => {
           const isSelected = selectedSpotName === spot.name
