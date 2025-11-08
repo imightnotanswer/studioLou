@@ -3,7 +3,14 @@ export const metadata = {
   description: 'Learn about Greenpoint Facialist and Ashley Guttuso, New York State Licensed Aesthetician.',
 }
 
-import { NeighborhoodMap } from '@/components/NeighborhoodMap'
+import dynamic from 'next/dynamic'
+
+const NeighborhoodMap = dynamic(
+  () => import('@/components/NeighborhoodMap').then((mod) => mod.NeighborhoodMap),
+  {
+    ssr: false,
+  }
+)
 
 const neighborhoodSpots = [
   {
