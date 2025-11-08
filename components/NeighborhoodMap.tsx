@@ -372,7 +372,6 @@ export function NeighborhoodMap({
 
   const MapInteractionHandler = () => {
     useMapEvent('click', clearActiveStates)
-    useMapEvent('touchstart', clearActiveStates)
     return null
   }
 
