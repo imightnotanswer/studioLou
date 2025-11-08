@@ -70,7 +70,7 @@ export function NeighborhoodMap({ spots }: NeighborhoodMapProps) {
     const isTablet = width < 1024 && width >= 768
     const isMobile = width < 768
     const maxZoom = isMobile ? 12 : isTablet ? 13.5 : 15
-    const padding = isMobile ? [70, 70] : isTablet ? [56, 56] : [40, 40]
+    const padding: L.PointTuple = isMobile ? [70, 70] : isTablet ? [56, 56] : [40, 40]
     map.fitBounds(bounds, { padding, maxZoom })
   }
 
