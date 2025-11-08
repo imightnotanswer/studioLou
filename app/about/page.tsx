@@ -98,8 +98,9 @@ export default function AboutPage() {
           </section>
 
           <section className="space-y-6 pt-10 border-t border-brownDeep">
-            <h2 className="font-heading text-xl md:text-3xl font-bold text-brownDeep text-center md:text-left">
-              A Greenpoint Facialist guide to the neighborhood
+            <h2 className="font-heading text-xl md:text-3xl font-bold text-brownDeep text-center md:text-left leading-tight">
+              <span className="block md:inline">Greenpoint Facialist's</span>{' '}
+              <span className="block md:inline">guide to the neighborhood</span>
             </h2>
             <p className="text-brownDeep/80 text-sm md:text-base leading-relaxed max-w-2xl mx-auto md:mx-0">
               Some of my favorite places as a Greenpoint local – perfect for setting the mood before or after your facial.
