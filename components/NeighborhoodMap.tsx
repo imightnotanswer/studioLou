@@ -103,9 +103,7 @@ export function NeighborhoodMap({ spots }: NeighborhoodMapProps) {
         zoom={16}
         scrollWheelZoom={false}
         className="h-full w-full"
-        whenCreated={(map) => {
-          mapRef.current = map
-        }}
+        ref={mapRef}
         preferCanvas
       >
         <TileLayer attribution={TILE_ATTRIBUTION} url={TILE_URL} />
