@@ -23,8 +23,7 @@ interface NeighborhoodMapProps {
 }
 
 const TILE_URL = 'https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png'
-const TILE_ATTRIBUTION =
-  ''
+const TILE_ATTRIBUTION = ''
 
 type LeafletModule = typeof import('leaflet')
 type ReactLeafletModule = typeof import('react-leaflet')
@@ -115,12 +114,16 @@ export function NeighborhoodMap({
 
     return spots.map((spot) => ({
       ...spot,
-      icon: createMarkerIcon(leafletLib, { isActive: spot.name === activeSpotName }),
+      icon: createMarkerIcon(leafletLib, {
+        isActive:
+          spot.name === activeSpotName ||
+          (selectedSpotName ? spot.name === selectedSpotName : false),
+      }),
       openUrl:
         spot.url ??
         `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(spot.address)}`,
     }))
-  }, [leafletLib, spots, activeSpotName])
+  }, [leafletLib, spots, activeSpotName, selectedSpotName])
 
   const bounds = useMemo(() => {
     if (!leafletLib || spots.length === 0) return null
@@ -129,9 +132,56 @@ export function NeighborhoodMap({
     )
   }, [leafletLib, spots])
 
-  const handleSelect = (spotName: string | null) => {
-    onSpotSelect?.(spotName)
-  }
+  useEffect(() => {
+    const markers = markersRef.current
+    const selectionName = selectedSpotName ?? null
+    const hoverName =
+      activeSpotName && activeSpotName !== selectionName ? activeSpotName : null
+
+    Object.entries(markers).forEach(([name, marker]) => {
+      const isSelected = selectionName === name
+      const isHovered = hoverName === name
+
+      if (isSelected) {
+        if (typeof marker.closeTooltip === 'function') {
+          marker.closeTooltip()
+        }
+        if (!enableMarkerLinks && typeof marker.openPopup === 'function') {
+          const popupOpen =
+            typeof marker.isPopupOpen === 'function' ? marker.isPopupOpen() : false
+          if (!popupOpen) {
+            marker.openPopup()
+          }
+        }
+        marker.setZIndexOffset(1500)
+        return
+      }
+
+      if (!enableMarkerLinks && typeof marker.closePopup === 'function') {
+        const popupOpen =
+          typeof marker.isPopupOpen === 'function' ? marker.isPopupOpen() : false
+        if (popupOpen) {
+          marker.closePopup()
+        }
+      }
+
+      if (isHovered) {
+        const tooltipOpen =
+          typeof marker.isTooltipOpen === 'function' ? marker.isTooltipOpen() : false
+        if (!tooltipOpen && typeof marker.openTooltip === 'function') {
+          marker.openTooltip()
+        }
+        marker.setZIndexOffset(1000)
+        return
+      }
+
+      if (typeof marker.isTooltipOpen === 'function' && marker.isTooltipOpen()) {
+        marker.closeTooltip()
+      }
+
+      marker.setZIndexOffset(0)
+    })
+  }, [activeSpotName, selectedSpotName, enableMarkerLinks])
 
   const applyFit = (map: LeafletMap) => {
     if (!bounds || typeof window === 'undefined') return
@@ -179,96 +229,57 @@ export function NeighborhoodMap({
   }, [copiedSpot])
 
   useEffect(() => {
-    const markers = markersRef.current
-    const selectionName = selectedSpotName ?? null
-    const hoverName = selectionName ? null : activeSpotName ?? null
-
-    Object.entries(markers).forEach(([name, marker]) => {
-      const isSelected = selectionName === name
-      const isHovered = hoverName === name
-
-      if (isSelected) {
-        marker.closeTooltip()
-
-        if (!enableMarkerLinks) {
-          const alreadyOpen =
-            typeof marker.isPopupOpen === 'function' ? marker.isPopupOpen() : false
-          if (!alreadyOpen) {
-            marker.openPopup()
-          }
-        } else {
-          marker.closePopup()
-        }
-
-        marker.setZIndexOffset(1500)
-        return
-      }
-
-      if (isHovered) {
-        const tooltipOpen =
-          typeof marker.isTooltipOpen === 'function' ? marker.isTooltipOpen() : false
-        if (!tooltipOpen) {
-          marker.openTooltip()
-        }
-
-        if (!enableMarkerLinks) {
-          marker.closePopup()
-        }
-
-        marker.setZIndexOffset(1000)
-        return
-      }
-
-      if (typeof marker.isTooltipOpen === 'function' ? marker.isTooltipOpen() : false) {
-        marker.closeTooltip()
-      }
-      marker.closePopup()
-      marker.setZIndexOffset(0)
-    })
-  }, [activeSpotName, selectedSpotName, enableMarkerLinks])
-
-  useEffect(() => {
     if (!mapRef.current || !leafletLib) return
 
-    if (!selectedSpotName) {
+    const targetName = selectedSpotName ?? activeSpotName ?? null
+    if (!targetName) {
       lastCenteredSpotRef.current = null
       return
     }
 
-    if (selectedSpotName === lastCenteredSpotRef.current) {
+    if (targetName === lastCenteredSpotRef.current) {
       return
     }
 
-    const marker = markersRef.current[selectedSpotName]
-    if (!marker) {
+    const selectedSpot = spots.find((spot) => spot.name === targetName)
+    if (!selectedSpot) {
       return
     }
 
     const map = mapRef.current
-    const latLng = marker.getLatLng()
+    const latLng = leafletLib.latLng(selectedSpot.lat, selectedSpot.lng)
     const container = map.getContainer()
     const containerHeight = container?.clientHeight ?? 0
-    const preferredPadding = Math.min(Math.max(containerHeight * 0.22, 110), 220)
-    const topPaddingPoint = leafletLib.point(0, preferredPadding)
-    const bottomPaddingPoint = leafletLib.point(0, 32)
+    const topPadding = Math.min(Math.max(containerHeight * 0.32, 128), 240)
+    const bottomPadding = Math.min(Math.max(containerHeight * 0.12, 48), 120)
+    const topPaddingPoint = leafletLib.point(0, topPadding)
+    const bottomPaddingPoint = leafletLib.point(0, bottomPadding)
 
-    const panInside = (map as LeafletNamespace.Map & { panInside?: LeafletNamespace.Map['panInside'] }).panInside
-    if (typeof panInside === 'function') {
-      panInside.call(map, latLng, {
-        paddingTopLeft: topPaddingPoint,
-        paddingBottomRight: bottomPaddingPoint,
-        animate: true,
-      })
-    } else {
-      const currentZoom = map.getZoom()
-      const projected = map.project(latLng, currentZoom)
-      const adjustedPoint = projected.subtract(leafletLib.point(0, preferredPadding - 32))
-      const targetLatLng = map.unproject(adjustedPoint, currentZoom)
-      map.panTo(targetLatLng, { animate: true })
+    const performPan = () => {
+      const panInside = (map as LeafletNamespace.Map & { panInside?: LeafletNamespace.Map['panInside'] }).panInside
+      if (typeof panInside === 'function') {
+        panInside.call(map, latLng, {
+          paddingTopLeft: topPaddingPoint,
+          paddingBottomRight: bottomPaddingPoint,
+          animate: true,
+        })
+      } else {
+        const currentZoom = map.getZoom()
+        const projected = map.project(latLng, currentZoom)
+        const adjustedPoint = projected.subtract(leafletLib.point(0, topPadding - bottomPadding))
+        const targetLatLng = map.unproject(adjustedPoint, currentZoom)
+        map.panTo(targetLatLng, { animate: true })
+      }
     }
 
-    lastCenteredSpotRef.current = selectedSpotName
-  }, [leafletLib, selectedSpotName])
+    if (typeof window !== 'undefined') {
+      window.requestAnimationFrame(performPan)
+    } else {
+      performPan()
+    }
+
+    lastCenteredSpotRef.current = selectedSpot.name
+  }, [leafletLib, activeSpotName, selectedSpotName, spots])
 
   if (!leafletLib || !reactLeaflet) {
     return (
@@ -289,47 +300,73 @@ export function NeighborhoodMap({
         ref={mapRef}
         preferCanvas
         attributionControl={false}
-        closePopupOnClick={false}
+        eventHandlers={{
+          click: () => {
+            onSpotHoverChange?.(null)
+            onSpotSelect?.(null)
+          },
+        }}
       >
         <TileLayer attribution={TILE_ATTRIBUTION} url={TILE_URL} />
         {spotsWithIcons.map((spot) => {
+          const isSelected = selectedSpotName === spot.name
+          const isHovered = !isSelected && activeSpotName === spot.name
+
           const baseEvents = {
             mouseover: () => {
-              onSpotHoverChange?.(spot.name)
+              if (!isSelected) {
+                onSpotHoverChange?.(spot.name)
+              }
             },
             mouseout: () => {
-              onSpotHoverChange?.(null)
+              if (!isSelected) {
+                onSpotHoverChange?.(null)
+              }
             },
             focus: () => {
-              onSpotHoverChange?.(spot.name)
+              if (!isSelected) {
+                onSpotHoverChange?.(spot.name)
+              }
             },
             blur: () => {
-              onSpotHoverChange?.(null)
+              if (!isSelected) {
+                onSpotHoverChange?.(null)
+              }
             },
           }
 
           const markerEvents = enableMarkerLinks
             ? {
-              ...baseEvents,
-              click: () => {
-                handleSelect(spot.name)
-                if (typeof window !== 'undefined') {
-                  window.open(spot.openUrl, '_blank', 'noopener,noreferrer')
-                }
-              },
-            }
+                ...baseEvents,
+                click: () => {
+                  onSpotSelect?.(spot.name)
+                  onSpotHoverChange?.(spot.name)
+                  if (typeof window !== 'undefined') {
+                    window.open(spot.openUrl, '_blank', 'noopener,noreferrer')
+                  }
+                },
+                popupclose: () => {
+                  if (activeSpotName === spot.name) {
+                    onSpotHoverChange?.(null)
+                  }
+                },
+              }
             : {
-              ...baseEvents,
-              click: () => handleSelect(spot.name),
-              popupopen: (event: LeafletNamespace.LeafletEvent) => {
-                event.target.closeTooltip()
-              },
-              popupclose: () => {
-                if (selectedSpotName === spot.name) {
-                  handleSelect(null)
-                }
-              },
-            }
+                ...baseEvents,
+                click: () => {
+                  const nextSelection = isSelected ? null : spot.name
+                  onSpotSelect?.(nextSelection)
+                  onSpotHoverChange?.(nextSelection)
+                },
+                popupclose: () => {
+                  if (selectedSpotName === spot.name) {
+                    onSpotSelect?.(null)
+                  }
+                  if (activeSpotName === spot.name) {
+                    onSpotHoverChange?.(null)
+                  }
+                },
+              }
 
           return (
             <Marker
@@ -343,22 +380,24 @@ export function NeighborhoodMap({
                   delete markersRef.current[spot.name]
                 }
               }}
+              zIndexOffset={isSelected ? 1500 : isHovered ? 1000 : 0}
               eventHandlers={markerEvents}
             >
-              {Tooltip && (
+              {Tooltip && !isSelected && (
                 <Tooltip
                   direction="top"
                   offset={[0, -18]}
                   opacity={1}
                   className="leaflet-tooltip-custom"
+                  interactive={false}
                 >
-                  <div className="space-y-1 text-center">
+                  <div className="space-y-1 text-center pointer-events-none">
                     <p className="font-semibold text-blueSoft text-sm">{spot.name}</p>
                     <p className="text-xs text-brownDeep/70">{spot.address}</p>
                   </div>
                 </Tooltip>
               )}
-              {!enableMarkerLinks && (
+              {!enableMarkerLinks && (isSelected || isHovered) && (
                 <Popup className="leaflet-popup-custom" autoPan={false}>
                   <div className="space-y-0.5 px-3 py-2 text-center">
                     <p className="font-semibold text-blueSoft text-sm">{spot.name}</p>
@@ -368,7 +407,10 @@ export function NeighborhoodMap({
                         event.preventDefault()
                         event.stopPropagation()
                         if (navigator?.clipboard?.writeText) {
-                          navigator.clipboard.writeText(spot.address).then(() => setCopiedSpot(spot.name)).catch(() => { })
+                          navigator.clipboard
+                            .writeText(spot.address)
+                            .then(() => setCopiedSpot(spot.name))
+                            .catch(() => {})
                         }
                       }}
                       className="text-xs text-brownDeep/70 hover:text-olive transition-colors cursor-text"

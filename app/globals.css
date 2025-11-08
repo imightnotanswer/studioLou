@@ -70,6 +70,7 @@
 
   .leaflet-tooltip.leaflet-tooltip-custom {
     @apply rounded-lg border border-brownDeep/10 shadow-md bg-white/90 backdrop-blur px-3 py-2;
+    pointer-events: none;
   }
 
   .leaflet-control-container .leaflet-control-attribution {
