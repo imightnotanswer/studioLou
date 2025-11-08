@@ -1,7 +1,12 @@
 'use client'
 
 import { useEffect, useMemo, useRef, useState } from 'react'
-import type { Map as LeafletMap, PointExpression } from 'leaflet'
+import type {
+  Map as LeafletMap,
+  PointExpression,
+  LeafletMouseEvent,
+  LeafletEvent as LeafletBaseEvent,
+} from 'leaflet'
 import type * as LeafletNamespace from 'leaflet'
 import 'leaflet/dist/leaflet.css'
 
@@ -27,6 +32,9 @@ const TILE_ATTRIBUTION = ''
 
 type LeafletModule = typeof import('leaflet')
 type ReactLeafletModule = typeof import('react-leaflet')
+type LeafletPointerEvent =
+  | LeafletMouseEvent
+  | (LeafletNamespace.LeafletEvent & { originalEvent: TouchEvent })
 
 function createMarkerIcon(L: LeafletModule, { isActive = false }: { isActive?: boolean } = {}) {
   const baseClass = 'leaflet-marker-custom'
@@ -256,19 +264,23 @@ export function NeighborhoodMap({
     const bottomPaddingPoint = leafletLib.point(0, bottomPadding)
 
     const performPan = () => {
+      if (typeof map.stop === 'function') {
+        map.stop()
+      }
+
       const panInside = (map as LeafletNamespace.Map & { panInside?: LeafletNamespace.Map['panInside'] }).panInside
       if (typeof panInside === 'function') {
         panInside.call(map, latLng, {
           paddingTopLeft: topPaddingPoint,
           paddingBottomRight: bottomPaddingPoint,
-          animate: true,
+          animate: false,
         })
       } else {
         const currentZoom = map.getZoom()
         const projected = map.project(latLng, currentZoom)
         const adjustedPoint = projected.subtract(leafletLib.point(0, topPadding - bottomPadding))
         const targetLatLng = map.unproject(adjustedPoint, currentZoom)
-        map.panTo(targetLatLng, { animate: true })
+        map.panTo(targetLatLng, { animate: false })
       }
     }
 
@@ -290,11 +302,77 @@ export function NeighborhoodMap({
   const leafletComponents = reactLeaflet as typeof import('react-leaflet')
   const { MapContainer, Marker, Popup, TileLayer, Tooltip, useMapEvent } = leafletComponents
 
-  const MapInteractionHandler = () => {
-    useMapEvent('click', () => {
+  const didEventOriginateFromMarker = (event: LeafletPointerEvent) => {
+    const referencedLayer =
+      (event as LeafletBaseEvent & { propagatedFrom?: LeafletNamespace.Layer }).propagatedFrom ??
+      (event as LeafletBaseEvent & { layer?: LeafletNamespace.Layer }).layer ??
+      null
+
+    if (referencedLayer && 'options' in referencedLayer && referencedLayer.options) {
+      const pane = (referencedLayer as LeafletNamespace.Layer & { options: { pane?: string } }).options?.pane
+      if (typeof pane === 'string' && pane.includes('marker')) {
+        return true
+      }
+    }
+
+    const target = (event as LeafletMouseEvent).originalEvent?.target ?? null
+
+    if (!(target instanceof HTMLElement)) {
+      return false
+    }
+
+    if (
+      target.closest('.leaflet-marker-icon') ||
+      target.closest('.leaflet-popup') ||
+      target.closest('.leaflet-control')
+    ) {
+      return true
+    }
+
+    return false
+  }
+
+  const shouldSkipClear = (event: LeafletPointerEvent) => {
+    if (didEventOriginateFromMarker(event)) {
+      return true
+    }
+
+    const target = (event as LeafletMouseEvent).originalEvent?.target ?? null
+    if (!(target instanceof HTMLElement)) {
+      return false
+    }
+
+    return Boolean(
+      target.closest('.leaflet-marker-icon') ||
+        target.closest('.leaflet-popup') ||
+        target.closest('.leaflet-control')
+    )
+  }
+
+  const clearActiveStates = (event: LeafletPointerEvent) => {
+    if (shouldSkipClear(event)) {
+      return
+    }
+
+    const hasSelection = Boolean(selectedSpotName)
+    const hasHover = Boolean(activeSpotName)
+
+    if (!hasSelection && !hasHover) {
+      return
+    }
+
+    if (hasHover) {
       onSpotHoverChange?.(null)
+    }
+
+    if (hasSelection) {
       onSpotSelect?.(null)
-    })
+    }
+  }
+
+  const MapInteractionHandler = () => {
+    useMapEvent('click', clearActiveStates)
+    useMapEvent('touchstart', clearActiveStates)
     return null
   }
 
@@ -349,6 +427,9 @@ export function NeighborhoodMap({
                   }
                 },
                 popupclose: () => {
+                  if (selectedSpotName === spot.name) {
+                    onSpotSelect?.(null)
+                  }
                   if (activeSpotName === spot.name) {
                     onSpotHoverChange?.(null)
                   }
@@ -357,9 +438,8 @@ export function NeighborhoodMap({
             : {
                 ...baseEvents,
                 click: () => {
-                  const nextSelection = isSelected ? null : spot.name
-                  onSpotSelect?.(nextSelection)
-                  onSpotHoverChange?.(nextSelection)
+                  onSpotSelect?.(spot.name)
+                  onSpotHoverChange?.(spot.name)
                 },
                 popupclose: () => {
                   if (selectedSpotName === spot.name) {

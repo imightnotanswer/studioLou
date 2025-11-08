@@ -42,13 +42,7 @@ export default function NeighborhoodGuide({ spots }: NeighborhoodGuideProps) {
                             return (
                                 <p
                                     key={spot.name}
-                                    onMouseEnter={() => handleHoverChange(spot.name)}
-                                    onMouseLeave={() => handleHoverChange(null)}
-                                    onFocus={() => handleHoverChange(spot.name)}
-                                    onBlur={() => handleHoverChange(null)}
-                                    tabIndex={0}
-                                    role="button"
-                                    className={`mb-0 cursor-pointer transition-colors duration-200 outline-none focus-visible:text-orangeBurnt focus-visible:underline ${isActive ? 'text-orangeBurnt' : ''
+                                    className={`mb-0 transition-colors duration-200 ${isActive ? 'text-orangeBurnt' : ''
                                         }`}
                                 >
                                     {spot.name}
