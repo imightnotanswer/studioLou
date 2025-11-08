@@ -16,7 +16,16 @@ const faqs: FAQItem[] = [
     question: 'How can I book an appointment?',
     answer: (
       <p>
-        You can conveniently book online here, or email{' '}
+        You can conveniently book online{' '}
+        <a
+          href="https://squareup.com/appointments/book"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-brownDeep/70 hover:text-olive transition-colors duration-200"
+        >
+          here
+        </a>
+        , or email{' '}
         <a
           href="mailto:hello@greenpointfacialist.com"
           className="text-brownDeep/70 hover:text-olive transition-colors duration-200"

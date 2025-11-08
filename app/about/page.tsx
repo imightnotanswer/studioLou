@@ -1,20 +1,13 @@
+import NeighborhoodGuide from '@/components/NeighborhoodGuide'
+
 export const metadata = {
   title: 'About | Greenpoint Facialist',
   description: 'Learn about Greenpoint Facialist and Ashley Guttuso, New York State Licensed Aesthetician.',
 }
 
-import dynamic from 'next/dynamic'
-
-const NeighborhoodMap = dynamic(
-  () => import('@/components/NeighborhoodMap').then((mod) => mod.NeighborhoodMap),
-  {
-    ssr: false,
-  }
-)
-
 const neighborhoodSpots = [
   {
-    name: 'Paloma (on Manhattan Ave)',
+    name: 'Paloma',
     address: '772 Manhattan Ave, Brooklyn, NY 11222',
     lat: 40.727244,
     lng: -73.95265,
@@ -69,7 +62,7 @@ const neighborhoodSpots = [
     lng: -73.9503257,
   },
   {
-    name: 'Achille’s Heel',
+    name: 'Achilles\' Heel',
     address: '180 West St, Brooklyn, NY 11222',
     lat: 40.7331765,
     lng: -73.9596929,
@@ -111,16 +104,7 @@ export default function AboutPage() {
             <p className="text-brownDeep/80 text-sm md:text-base leading-relaxed max-w-2xl mx-auto md:mx-0">
               Some of my favorite places as a Greenpoint local – perfect for setting the mood before or after your facial.
             </p>
-            <div className="flex flex-col md:flex-row md:items-start md:gap-14">
-              <div className="text-brownDeep/90 text-sm md:text-base leading-relaxed space-y-1 text-center md:text-left max-w-xl md:max-w-none">
-                {neighborhoodSpots.map((spot) => (
-                  <p key={spot.name}>{spot.name}</p>
-                ))}
-              </div>
-              <div className="mt-6 w-full md:mt-0 md:self-start md:flex-shrink-0 md:w-[360px] lg:w-[400px] md:ml-10 lg:ml-14">
-                <NeighborhoodMap spots={neighborhoodSpots} />
-              </div>
-            </div>
+            <NeighborhoodGuide spots={neighborhoodSpots} />
           </section>
         </section>
       </div>
