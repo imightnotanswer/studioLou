@@ -14,6 +14,7 @@ interface ServiceCardProps {
   description: string | React.ReactNode
   whoFor?: string | string[]
   features?: string[]
+  highlights?: string | React.ReactNode
   durationOptions?: DurationOption[]
   packageNote?: string
 }
@@ -65,6 +66,7 @@ export function ServiceCard({
   description,
   whoFor,
   features,
+  highlights,
   durationOptions,
   packageNote,
 }: ServiceCardProps) {
@@ -125,6 +127,30 @@ export function ServiceCard({
                 </li>
               ))}
             </ul>
+          </div>
+        )}
+        {highlights && (
+          <div>
+            {typeof highlights === 'string' ? (
+              <p className="text-brownDeep/80 text-sm leading-relaxed">
+                {(() => {
+                  const [labelPart, ...rest] = highlights.split('|')
+                  if (labelPart && rest.length > 0) {
+                    return (
+                      <>
+                        <strong className="text-brownDeep">
+                          {labelPart.trim()} |
+                        </strong>{' '}
+                        {rest.join('|').trim()}
+                      </>
+                    )
+                  }
+                  return highlights.trim()
+                })()}
+              </p>
+            ) : (
+              highlights
+            )}
           </div>
         )}
       </div>

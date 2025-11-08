@@ -41,15 +41,7 @@ export default function ServicesPage() {
       description:
         `Where renewal meets release. This facial will leave your skin and self feeling completely uplifted, yet it's uniquely grounding. This facial harnesses luscious, plant-based skincare with an extended focus on facial massage, including sculptural techniques, manual lymphatic drainage, and gentle cupping, all working in harmony to de-puff, release deep tension, and lift the skin with visible vitality. Each element is designed to reset both skin and spirit: skin emerges divinely fresh, luminous, and nourished, while your whole being feels deeply restored when you come back earthside.`,
       whoFor: `Designed for those who carry tension in the face or jaw, experience puffiness, or simply for skin that feels dull, dry, and depleted. Perfect for when skin is feeling lackluster, during high-stress seasons, or whenever your skin needs a revitalizing reset and your body a full exhale.`,
-      features: [
-        'Skin analysis',
-        'Odacite Ceremonial Matcha Cleanse',
-        'Odacite Bioactive gommage peel',
-        'Extended facial massage',
-        'MLD + cupping',
-        'LED with Sachi Skin peptide enhancement',
-        'This treatment does not include extractions',
-      ],
+      highlights: `Highlights | Ceremonial Matcha Cleanse, Bioactive Rose Gommage Peel, extended facial massage, MLD + cupping, LED light therapy with Sachi Skin peptide enhancement, and functional aromatherapy. This treatment does not include extractions.`,
     },
   ]
 
@@ -66,7 +58,7 @@ export default function ServicesPage() {
             </p>
           </div>
           <div className="mt-8">
-            <Button href="/booking">BOOK NOW</Button>
+            <Button href="https://squareup.com/appointments/book">BOOK NOW</Button>
           </div>
         </div>
 
@@ -77,7 +69,7 @@ export default function ServicesPage() {
         </div>
 
         <div className="mt-12 md:mt-16 pt-8">
-          <Button href="/booking">BOOK NOW</Button>
+          <Button href="https://squareup.com/appointments/book">BOOK NOW</Button>
         </div>
       </div>
     </div>

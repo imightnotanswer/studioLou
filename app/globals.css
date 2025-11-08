@@ -28,6 +28,47 @@
   }
 }
 
+@layer components {
+  .leaflet-marker-custom {
+    @apply flex items-center justify-center rounded-full shadow-lg ring-4 ring-white/80;
+    background: linear-gradient(135deg, #a1aa2e 0%, #c3cb5d 100%);
+    width: 2.375rem;
+    height: 2.375rem;
+    line-height: 1;
+  }
+
+  .leaflet-container {
+    font-family: 'Figtree', sans-serif;
+  }
+
+  .leaflet-popup.leaflet-popup-custom {
+    @apply shadow-lg rounded-xl border border-brownDeep/10;
+  }
+
+  .leaflet-popup.leaflet-popup-custom .leaflet-popup-content-wrapper {
+    border-radius: 0.75rem;
+    background: linear-gradient(135deg, rgba(154, 180, 193, 0.12), rgba(244, 236, 211, 0.9));
+    padding: 0.5rem 0.75rem;
+  }
+
+  .leaflet-popup.leaflet-popup-custom .leaflet-popup-content {
+    margin: 0;
+    min-width: 150px;
+  }
+
+  .leaflet-popup.leaflet-popup-custom .leaflet-popup-tip {
+    background: linear-gradient(135deg, rgba(154, 180, 193, 0.12), rgba(244, 236, 211, 0.9));
+  }
+
+  .leaflet-popup.leaflet-popup-custom .leaflet-popup-close-button {
+    top: 0.25rem;
+    right: 0.35rem;
+    font-size: 1rem;
+    color: #440a09;
+    opacity: 0.6;
+  }
+}
+
 @layer utilities {
   .text-balance {
     text-wrap: balance;

@@ -3,6 +3,7 @@
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { useState, useEffect, useRef } from 'react'
+import { Button } from '@/components/Button'
 
 export function Header() {
   const pathname = usePathname()
@@ -43,15 +44,15 @@ export function Header() {
 
   const navLinks = [
     { href: '/', label: 'HOME' },
-    { href: '/booking', label: 'BOOK' },
     { href: '/services', label: 'SERVICES' },
     { href: '/about', label: 'ABOUT' },
+    { href: '/faqs', label: 'FAQs' },
     { href: '/contact', label: 'CONTACT' },
   ]
 
   const isActive = (href: string) => {
     if (href === '/' && pathname === '/') return true
-    if (href === '/booking' && pathname === '/booking') return true
+    if (href === '/faqs' && pathname === '/faqs') return true
     if (href === '/services' && pathname === '/services') return true
     if (href === '/about' && pathname === '/about') return true
     if (href === '/contact' && pathname === '/contact') return true
@@ -66,9 +67,18 @@ export function Header() {
         }`}
     >
       <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-center items-center h-10 md:h-20">
+        <div className="relative flex items-center justify-between h-12 md:h-20">
+          <div className="flex-1 flex items-center justify-start">
+            <Button
+              href="https://squareup.com/appointments/book"
+              className="px-4 py-1.5 text-xs md:px-6 md:py-2 md:text-sm"
+            >
+              BOOK A FACIAL
+            </Button>
+          </div>
+
           {/* Desktop Navigation */}
-          <div className="hidden md:flex gap-8">
+          <div className="hidden md:flex gap-8 absolute left-1/2 -translate-x-1/2">
             {navLinks.map((link) => (
               <Link
                 key={link.href}
@@ -84,7 +94,7 @@ export function Header() {
           </div>
 
           {/* Mobile Navigation */}
-          <div ref={mobileMenuRef} className="md:hidden w-full flex justify-end items-center">
+          <div ref={mobileMenuRef} className="md:hidden flex flex-1 justify-end items-center">
             {/* Hamburger Button */}
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}

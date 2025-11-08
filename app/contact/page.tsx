@@ -20,7 +20,7 @@ export default function ContactPage() {
           <div className="space-y-6">
             <div>
               <h2 className="font-heading text-xl md:text-2xl font-bold text-brownDeep mb-4">
-                Address
+                Location
               </h2>
               <div className="text-brownDeep leading-relaxed space-y-2">
                 <p>960 Manhattan Ave, 4th Floor</p>
@@ -33,7 +33,7 @@ export default function ContactPage() {
 
             <div>
               <h2 className="font-heading text-xl md:text-2xl font-bold text-brownDeep mb-4">
-                Contact Info
+                Get in touch
               </h2>
               <div className="text-brownDeep leading-relaxed space-y-2">
                 <p>

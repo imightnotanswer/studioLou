@@ -219,9 +219,25 @@ export default function WaterRippleBackground() {
       mouse.set(0, 0)
     }
 
+    const handleTouchMove = (e: TouchEvent) => {
+      if (e.touches.length === 0) return
+      const bounds = container.getBoundingClientRect()
+      const touch = e.touches[0]
+      mouse.x = (touch.clientX - bounds.left) * window.devicePixelRatio
+      mouse.y = (bounds.height - (touch.clientY - bounds.top)) * window.devicePixelRatio
+      lastMouseMoveTime = performance.now()
+    }
+
+    const handleTouchEnd = () => {
+      mouse.set(0, 0)
+    }
+
     if (parentContainer) {
       parentContainer.addEventListener('mousemove', handleMouseMove)
       parentContainer.addEventListener('mouseleave', handleMouseLeave)
+      parentContainer.addEventListener('touchstart', handleTouchMove, { passive: true })
+      parentContainer.addEventListener('touchmove', handleTouchMove, { passive: true })
+      parentContainer.addEventListener('touchend', handleTouchEnd, { passive: true })
     }
 
     const animate = () => {
@@ -263,6 +279,9 @@ export default function WaterRippleBackground() {
       if (parentContainer) {
         parentContainer.removeEventListener('mousemove', handleMouseMove)
         parentContainer.removeEventListener('mouseleave', handleMouseLeave)
+        parentContainer.removeEventListener('touchstart', handleTouchMove)
+        parentContainer.removeEventListener('touchmove', handleTouchMove)
+        parentContainer.removeEventListener('touchend', handleTouchEnd)
       }
       container.removeChild(renderer.domElement)
       renderer.dispose()
