@@ -43,7 +43,7 @@ export default function HomePage() {
               ✕
             </button>
             <h2 className="font-heading text-xl md:text-2xl text-brownDeep mb-2">
-              Complimentary Upgrade Opportunity
+              Want an upgrade?
             </h2>
             <p className="text-brownDeep/80 text-sm md:text-base leading-relaxed mb-4">
               Enter your email address for a chance to receive a complimentary upgrade with your next facial.
