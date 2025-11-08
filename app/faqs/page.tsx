@@ -122,7 +122,7 @@ export default function FAQsPage() {
     <div className="bg-cream min-h-screen py-12 md:py-16 lg:py-20">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center md:text-left">
         <div className="mb-12 md:mb-16">
-          <h1 className="font-heading text-3xl md:text-4xl lg:text-5xl font-bold text-blueSoft mb-4 md:mb-6">
+          <h1 className="font-heading text-3xl md:text-4xl lg:text-5xl font-bold text-blueSoft tracking-tighter mb-4 md:mb-6">
             FAQs
           </h1>
         </div>
