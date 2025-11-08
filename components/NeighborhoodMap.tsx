@@ -10,15 +10,17 @@ interface NeighborhoodSpot {
   address: string
   lat: number
   lng: number
+  url?: string
 }
 
 interface NeighborhoodMapProps {
   spots: NeighborhoodSpot[]
+  enableMarkerLinks?: boolean
 }
 
 const TILE_URL = 'https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png'
 const TILE_ATTRIBUTION =
-  '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>'
+  ''
 
 type LeafletModule = typeof import('leaflet')
 type ReactLeafletModule = typeof import('react-leaflet')
@@ -33,10 +35,11 @@ function createMarkerIcon(L: LeafletModule) {
   })
 }
 
-export function NeighborhoodMap({ spots }: NeighborhoodMapProps) {
+export function NeighborhoodMap({ spots, enableMarkerLinks = false }: NeighborhoodMapProps) {
   const mapRef = useRef<LeafletMap | null>(null)
   const [leafletLib, setLeafletLib] = useState<LeafletModule | null>(null)
   const [reactLeaflet, setReactLeaflet] = useState<ReactLeafletModule | null>(null)
+  const [copiedSpot, setCopiedSpot] = useState<string | null>(null)
 
   useEffect(() => {
     if (typeof window === 'undefined') {
@@ -45,24 +48,24 @@ export function NeighborhoodMap({ spots }: NeighborhoodMapProps) {
 
     let isMounted = true
 
-    ;(async () => {
-      try {
-        const [leafletModule, reactLeafletModule] = await Promise.all([
-          import('leaflet'),
-          import('react-leaflet'),
-        ])
+      ; (async () => {
+        try {
+          const [leafletModule, reactLeafletModule] = await Promise.all([
+            import('leaflet'),
+            import('react-leaflet'),
+          ])
 
-        if (!isMounted) {
-          return
+          if (!isMounted) {
+            return
+          }
+
+          const loadedLeaflet = (leafletModule.default ?? leafletModule) as LeafletModule
+          setLeafletLib(loadedLeaflet)
+          setReactLeaflet(reactLeafletModule)
+        } catch (error) {
+          console.error('Failed to load map libraries', error)
         }
-
-        const loadedLeaflet = (leafletModule.default ?? leafletModule) as LeafletModule
-        setLeafletLib(loadedLeaflet)
-        setReactLeaflet(reactLeafletModule)
-      } catch (error) {
-        console.error('Failed to load map libraries', error)
-      }
-    })()
+      })()
 
     return () => {
       isMounted = false
@@ -90,7 +93,9 @@ export function NeighborhoodMap({ spots }: NeighborhoodMapProps) {
     return spots.map((spot) => ({
       ...spot,
       icon: createMarkerIcon(leafletLib),
-      googleUrl: `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(spot.address)}`,
+      openUrl:
+        spot.url ??
+        `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(spot.address)}`,
     }))
   }, [leafletLib, spots])
 
@@ -140,13 +145,20 @@ export function NeighborhoodMap({ spots }: NeighborhoodMapProps) {
     }
   }, [bounds])
 
+  useEffect(() => {
+    if (!copiedSpot) return
+    const timeout = window.setTimeout(() => setCopiedSpot(null), 1800)
+    return () => window.clearTimeout(timeout)
+  }, [copiedSpot])
+
   if (!leafletLib || !reactLeaflet) {
     return (
       <div className="relative w-full max-w-xl aspect-square mx-auto rounded-3xl border border-brownDeep/20 overflow-hidden shadow-inner md:max-w-md lg:max-w-sm bg-blueSoft/10" />
     )
   }
 
-  const { MapContainer, Marker, Popup, TileLayer } = reactLeaflet
+  const leafletComponents = reactLeaflet as typeof import('react-leaflet')
+  const { MapContainer, Marker, Popup, TileLayer, Tooltip } = leafletComponents
 
   return (
     <div className="relative w-full max-w-xl aspect-square mx-auto rounded-3xl border border-brownDeep/20 overflow-hidden shadow-inner md:max-w-md lg:max-w-sm">
@@ -157,6 +169,7 @@ export function NeighborhoodMap({ spots }: NeighborhoodMapProps) {
         className="h-full w-full"
         ref={mapRef}
         preferCanvas
+        attributionControl={false}
       >
         <TileLayer attribution={TILE_ATTRIBUTION} url={TILE_URL} />
         {spotsWithIcons.map((spot) => (
@@ -164,23 +177,64 @@ export function NeighborhoodMap({ spots }: NeighborhoodMapProps) {
             key={spot.name}
             position={[spot.lat, spot.lng]}
             icon={spot.icon}
-            eventHandlers={{
-              mouseover: (event) => event.target.openPopup(),
-              mouseout: (event) => event.target.closePopup(),
-            }}
+            eventHandlers={
+              enableMarkerLinks
+                ? {
+                  click: () => {
+                    if (typeof window !== 'undefined') {
+                      window.open(spot.openUrl, '_blank', 'noopener,noreferrer')
+                    }
+                  },
+                }
+                : {
+                  popupopen: (event) => {
+                    event.target.closeTooltip()
+                  },
+                }
+            }
           >
-            <Popup className="leaflet-popup-custom">
-              <div className="space-y-1 px-3 py-2 text-center">
-                <p className="font-semibold text-blueSoft text-sm">{spot.name}</p>
-                <p className="text-xs text-brownDeep/70">{spot.address}</p>
-              </div>
-            </Popup>
+            {Tooltip && (
+              <Tooltip direction="top" offset={[0, -18]} opacity={1} className="leaflet-tooltip-custom">
+                <div className="space-y-1 text-center">
+                  <p className="font-semibold text-blueSoft text-sm">{spot.name}</p>
+                  <p className="text-xs text-brownDeep/70">{spot.address}</p>
+                </div>
+              </Tooltip>
+            )}
+            {!enableMarkerLinks && (
+              <Popup className="leaflet-popup-custom">
+                <div className="space-y-0.5 px-3 py-2 text-center">
+                  <p className="font-semibold text-blueSoft text-sm">{spot.name}</p>
+                  <button
+                    type="button"
+                    onClick={(event) => {
+                      event.preventDefault()
+                      event.stopPropagation()
+                      if (navigator?.clipboard?.writeText) {
+                        navigator.clipboard.writeText(spot.address).then(() => setCopiedSpot(spot.name)).catch(() => { })
+                      }
+                    }}
+                    className="text-xs text-brownDeep/70 hover:text-olive transition-colors cursor-text"
+                  >
+                    {spot.address}
+                  </button>
+                  {copiedSpot === spot.name && (
+                    <p className="text-[11px] text-olive font-medium">Copied!</p>
+                  )}
+                </div>
+              </Popup>
+            )}
           </Marker>
         ))}
       </MapContainer>
       <div className="pointer-events-none absolute top-4 left-4 bg-white/80 backdrop-blur px-3 py-1.5 rounded-full text-xs font-medium text-brownDeep uppercase tracking-wide shadow-sm border border-brownDeep/10">
         Greenpoint Highlights
       </div>
+      <style jsx global>{`
+        .leaflet-control-attribution {
+          display: none !important;
+        }
+      `}</style>
     </div>
   )
 }

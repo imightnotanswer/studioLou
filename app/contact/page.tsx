@@ -1,5 +1,22 @@
 import Link from 'next/link'
-import { Map } from '@/components/Map'
+import dynamic from 'next/dynamic'
+
+const NeighborhoodMap = dynamic(
+  () => import('@/components/NeighborhoodMap').then((mod) => mod.NeighborhoodMap),
+  {
+    ssr: false,
+  }
+)
+
+const heldspaceSpot = [
+  {
+    name: 'Heldspace',
+    address: '960 Manhattan Ave 4th Fl, Brooklyn, NY 11222',
+    lat: 40.732062,
+    lng: -73.9542784,
+    url: 'https://share.google/8vCyjbnOiNXOzlrXu',
+  },
+]
 
 export const metadata = {
   title: 'Contact | Greenpoint Facialist',
@@ -58,7 +75,7 @@ export default function ContactPage() {
             </div>
           </div>
 
-          <Map />
+          <NeighborhoodMap spots={heldspaceSpot} enableMarkerLinks />
         </div>
       </div>
     </div>

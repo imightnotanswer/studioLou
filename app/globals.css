@@ -67,6 +67,16 @@
     color: #440a09;
     opacity: 0.6;
   }
+
+  .leaflet-tooltip.leaflet-tooltip-custom {
+    @apply rounded-lg border border-brownDeep/10 shadow-md bg-white/90 backdrop-blur px-3 py-2;
+  }
+
+  .leaflet-control-container .leaflet-control-attribution {
+    display: none !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
+  }
 }
 
 @layer utilities {

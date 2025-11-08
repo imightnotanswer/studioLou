@@ -71,9 +71,9 @@ export function Header() {
           <div className="flex-1 flex items-center justify-start">
             <Button
               href="https://squareup.com/appointments/book"
-              className="px-4 py-1.5 text-xs md:px-6 md:py-2 md:text-sm"
+              className="px-3 py-1 text-xs md:px-5 md:py-1.5 md:text-sm bg-brownDeep/90 hover:bg-brownDeep"
             >
-              BOOK A FACIAL
+              Book
             </Button>
           </div>
 

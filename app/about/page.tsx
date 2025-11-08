@@ -20,7 +20,7 @@ const neighborhoodSpots = [
     lng: -73.95265,
   },
   {
-    name: 'Heldspace',
+    name: 'Held Space',
     address: '960 Manhattan Ave 4th Fl, Brooklyn, NY 11222',
     lat: 40.732062,
     lng: -73.9542784,
@@ -54,6 +54,7 @@ const neighborhoodSpots = [
     address: '746 Manhattan Ave, Brooklyn, NY 11222',
     lat: 40.7265699,
     lng: -73.9522451,
+    url: 'https://maps.app.goo.gl/Cnxg4eTPgraSBphCA',
   },
   {
     name: 'Caffè Panna',
@@ -107,16 +108,18 @@ export default function AboutPage() {
             <h2 className="font-heading text-2xl md:text-3xl font-bold text-brownDeep text-center md:text-left">
               A Greenpoint Facialist guide to the neighborhood
             </h2>
-            <p className="text-brownDeep/80 text-sm md:text-base leading-relaxed max-w-2xl mx-auto">
+            <p className="text-brownDeep/80 text-sm md:text-base leading-relaxed max-w-2xl mx-auto md:mx-0">
               Some of my favorite places as a Greenpoint local – perfect for setting the mood before or after your facial.
             </p>
-            <div className="grid sm:grid-cols-2 gap-3 text-brownDeep/90 text-sm md:text-base leading-relaxed text-center">
-              {neighborhoodSpots.map((spot) => (
-                <p key={spot.name}>{spot.name}</p>
-              ))}
-            </div>
-            <div className="pt-6">
-              <NeighborhoodMap spots={neighborhoodSpots} />
+            <div className="flex flex-col md:flex-row md:items-start md:gap-14">
+              <div className="text-brownDeep/90 text-sm md:text-base leading-relaxed space-y-1 text-center md:text-left max-w-xl md:max-w-none">
+                {neighborhoodSpots.map((spot) => (
+                  <p key={spot.name}>{spot.name}</p>
+                ))}
+              </div>
+              <div className="mt-6 w-full md:mt-0 md:self-start md:flex-shrink-0 md:w-[360px] lg:w-[400px] md:ml-10 lg:ml-14">
+                <NeighborhoodMap spots={neighborhoodSpots} />
+              </div>
             </div>
           </section>
         </section>
