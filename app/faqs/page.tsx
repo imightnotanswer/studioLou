@@ -77,7 +77,7 @@ const faqs: FAQItem[] = [
     question: 'Where is the studio located?',
     answer: (
       <p>
-        Greenpoint Facialist is located within the beautiful Held space offices on the 4th floor at 960 Manhattan Ave,
+        Greenpoint Facialist is located within the beautiful Held Space offices on the 4th floor at 960 Manhattan Ave,
         Brooklyn in the Greenpoint neighborhood. When you book, you will be sent an email with instructions and a door code
         to enter the building. I practice within Flossie McCall Acupuncture, I highly recommend her services. You can view
         her offerings here.

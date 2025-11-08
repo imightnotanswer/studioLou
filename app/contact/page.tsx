@@ -10,7 +10,7 @@ const NeighborhoodMap = dynamic(
 
 const heldspaceSpot = [
   {
-    name: 'Heldspace',
+    name: 'Held Space',
     address: '960 Manhattan Ave 4th Fl, Brooklyn, NY 11222',
     lat: 40.732062,
     lng: -73.9542784,
