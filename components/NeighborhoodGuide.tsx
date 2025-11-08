@@ -22,31 +22,28 @@ export default function NeighborhoodGuide({ spots }: NeighborhoodGuideProps) {
         setHoveredSpot(spotName)
     }
 
-    const handleSpotSelect = (spotName: string) => {
+    const handleSpotSelect = (spotName: string | null) => {
         setSelectedSpot(spotName)
-        setHoveredSpot(spotName)
-    }
-
-    const clearSelection = () => {
-        setSelectedSpot(null)
-        setHoveredSpot(null)
+        if (!spotName) {
+            setHoveredSpot(null)
+        }
     }
 
     return (
         <div className="flex flex-col md:flex-row md:items-start md:gap-14">
             <div className="text-brownDeep/90 text-sm md:text-base leading-relaxed grid grid-cols-2 gap-x-6 gap-y-2 text-center md:text-left max-w-xl md:max-w-none md:gap-x-10 mx-auto md:mx-0 justify-items-center md:justify-items-start">
                 {groupedSpots.map((column, columnIndex) => (
-                    <div key={columnIndex} className="flex flex-col gap-y-2">
+                    <div key={columnIndex} className="flex flex-col gap-y-2 min-w-[7.5rem] md:min-w-[8.5rem]">
                         {column.map((spot) => {
                             const isActive = hoveredSpot === spot.name || selectedSpot === spot.name
                             return (
-                                <p
+                                <span
                                     key={spot.name}
-                                    className={`mb-0 transition-colors duration-200 ${isActive ? 'text-olive font-semibold' : ''
+                                    className={`block transition-all duration-200 ${isActive ? 'font-semibold text-olive' : 'font-normal text-brownDeep/80'
                                         }`}
                                 >
                                     {spot.name}
-                                </p>
+                                </span>
                             )
                         })}
                     </div>
@@ -59,11 +56,7 @@ export default function NeighborhoodGuide({ spots }: NeighborhoodGuideProps) {
                     selectedSpotName={selectedSpot}
                     onSpotHoverChange={handleHoverChange}
                     onSpotSelect={(spotName) => {
-                        if (spotName) {
-                            handleSpotSelect(spotName)
-                        } else {
-                            clearSelection()
-                        }
+                        handleSpotSelect(spotName)
                     }}
                 />
             </div>

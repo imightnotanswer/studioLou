@@ -43,6 +43,7 @@
 
   .leaflet-popup.leaflet-popup-custom {
     @apply shadow-lg rounded-xl border border-brownDeep/10;
+    z-index: 1200;
   }
 
   .leaflet-popup.leaflet-popup-custom .leaflet-popup-content-wrapper {
@@ -58,6 +59,7 @@
 
   .leaflet-popup.leaflet-popup-custom .leaflet-popup-tip {
     background: linear-gradient(135deg, rgba(154, 180, 193, 0.12), rgba(244, 236, 211, 0.9));
+    z-index: 1200;
   }
 
   .leaflet-popup.leaflet-popup-custom .leaflet-popup-close-button {
