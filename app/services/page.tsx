@@ -21,25 +21,25 @@ export default function ServicesPage() {
               <strong>60 minutes |</strong> This comprehensive hour-long facial is the foundation of ‘The Edit.’ Customized exfoliation, extractions (as needed), techniques that may include tension-relieving facial massage and manual lymphatic drainage, regenerative décolleté care, and a targeted treatment mask are included in this well-rounded facial to effectively address your goals.
             </>
           ),
-          whoFor: `For anyone seeking an effective yet restorative facial experience - perfect as a seasonal reset, regular maintenance facial, or introduction to Greenpoint Facialist treatments. This facial is ideal for skin showing signs of congestion, breakouts, dullness, mild dehydration, or uneven texture and tone. It’s designed to deliver visible results and a sense of calm and renewal, whether your skin needs a fresh start or a regular dose of balance and vitality.`,
+          whoFor: `For anyone seeking an effective yet restorative facial experience - perfect as a seasonal reset or as regular maintenance. This facial is ideal for skin showing signs of congestion, breakouts, dullness, dehydration, or uneven texture and tone. It's designed to deliver visible results and a sense of calm and renewal, whether your skin needs a fresh start or a regular dose of balance and vitality.`,
         },
         {
           duration: '90 minutes',
           description: (
             <>
-              <strong>90 minutes |</strong> With 30 additional minutes, two advanced technologies are included; a <strong>lifting microcurrent treatment</strong> and <strong>LED light therapy with a peptide enhancement</strong> to encourage tone, cellular renewal, and boost long-term skin vitality. Additional upgraded skin treatments may include a clinical <strong>alginate treatment mask</strong> or an extended focus on <strong>sculpting facial massage</strong> and <strong>manual lymphatic drainage</strong>.
+              <strong>90 minutes |</strong> With 30 additional minutes, two advanced treatments are included; an <strong>upgraded mask treatment</strong> along with <strong>LED light therapy with a peptide enhancement</strong>. An advanced clinical treatment mask will include either an <strong>oxygenating facial treatment</strong> for dull, aging or acne-prone skin or a <strong>firming, hydrating Alginate mask</strong>. LED therapy encourages cellular renewal and collagen production, kills acne-causing bacteria, brightens and supports long-term skin vitality.
             </>
           ),
-          whoFor: `For anyone looking for an advanced, luxe facial that delivers both visible results and a restorative experience. Ideal for skin showing early signs of laxity, dullness, or fatigue, and for anyone looking to maintain firmness through advanced, non-invasive technology combined with botanical skincare.`,
+          whoFor: `Anyone looking for an advanced, luxe facial that delivers both visible results and a restorative experience. Ideal for skin showing early signs of laxity, dullness, or fatigue, and for anyone looking to tame inflammatory skin conditions like acne, dermatitis, or rosacea with a combination of advanced clinical and botanical skincare`,
         },
       ],
-      packageNote: `A package of three 60 minute facials is available. View booking page for details.`,
+      packageNote: `A package of three 60 minute ‘Edit’ facials is available. Purchase of a package includes an LED upgrade. View booking page for details. `,
     },
     {
       title: 'Heaven + Earth',
-      duration: '60 minutes',
+      duration: '70 minutes',
       description:
-        `Where renewal meets release. This facial will leave your skin and self feeling completely uplifted, yet it's uniquely grounding. This facial harnesses luscious, plant-based skincare with an extended focus on facial massage, including sculptural techniques, manual lymphatic drainage, and gentle cupping, all working in harmony to de-puff, release deep tension, and lift the skin with visible vitality. Each element is designed to reset both skin and spirit: skin emerges divinely fresh, luminous, and nourished, while your whole being feels deeply restored when you come back earthside.`,
+        `Where renewal meets release. This facial will leave your skin and self feeling completely uplifted, yet it's uniquely grounding. This facial harnesses powerful plant-based skincare with an extended focus on facial massage, including sculptural techniques, manual lymphatic drainage, and gentle cupping, all working in harmony to de-puff, release deep tension, and lift the skin with visible vitality. Each element is designed to reset both skin and spirit: skin emerges divinely fresh, luminous, and nourished, while your whole being feels deeply restored when you come back earthside.`,
       whoFor: `Designed for those who carry tension in the face or jaw, experience puffiness, or simply for skin that feels dull, dry, and depleted. Perfect for when skin is feeling lackluster, during high-stress seasons, or whenever your skin needs a revitalizing reset and your body a full exhale.`,
       highlights: `Highlights | Ceremonial Matcha Cleanse, Bioactive Rose Gommage Peel, extended facial massage, MLD + cupping, LED light therapy with Sachi Skin peptide enhancement, and functional aromatherapy. This treatment does not include extractions.`,
     },

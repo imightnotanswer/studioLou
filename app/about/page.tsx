@@ -13,12 +13,6 @@ const neighborhoodSpots = [
     lng: -73.95265,
   },
   {
-    name: 'Held Space',
-    address: '960 Manhattan Ave 4th Fl, Brooklyn, NY 11222',
-    lat: 40.732062,
-    lng: -73.9542784,
-  },
-  {
     name: 'Acre',
     address: '64 Meserole Ave, Brooklyn, NY 11222',
     lat: 40.726241,
@@ -31,23 +25,10 @@ const neighborhoodSpots = [
     lng: -73.9604149,
   },
   {
-    name: 'Cecily',
-    address: '80 Franklin St, Brooklyn, NY 11222',
-    lat: 40.7273016,
-    lng: -73.9570039,
-  },
-  {
     name: 'Oh Mercy',
     address: '128 Franklin St, Brooklyn, NY 11222',
     lat: 40.7292924,
     lng: -73.95735,
-  },
-  {
-    name: 'P&P',
-    address: '746 Manhattan Ave, Brooklyn, NY 11222',
-    lat: 40.7265699,
-    lng: -73.9522451,
-    url: 'https://maps.app.goo.gl/Cnxg4eTPgraSBphCA',
   },
   {
     name: 'Caffè Panna',
@@ -66,6 +47,24 @@ const neighborhoodSpots = [
     address: '180 West St, Brooklyn, NY 11222',
     lat: 40.7331765,
     lng: -73.9596929,
+  },
+  {
+    name: 'Archestratus',
+    address: '164 Huron St, Brooklyn, NY 11222',
+    lat: 40.7325,
+    lng: -73.9585,
+  },
+  {
+    name: 'For the Record',
+    address: '1107 Manhattan Ave, Brooklyn, NY 11222',
+    lat: 40.735,
+    lng: -73.954,
+  },
+  {
+    name: 'Kettl',
+    address: '70 Greenpoint Ave, Brooklyn, NY 11222',
+    lat: 40.728,
+    lng: -73.953,
   },
 ]
 
@@ -99,7 +98,7 @@ export default function AboutPage() {
 
           <section className="space-y-6 pt-10 border-t border-brownDeep">
             <h2 className="font-heading text-lg sm:text-xl md:text-3xl font-bold text-brownDeep text-center md:text-left leading-tight">
-              <span className="block md:inline whitespace-nowrap">Greenpoint Facialist's</span>{' '}
+              <span className="block md:inline whitespace-nowrap">A Greenpoint Facialist</span>{' '}
               <span className="block md:inline whitespace-nowrap">guide to the neighborhood</span>
             </h2>
             <p className="text-brownDeep/80 text-sm md:text-base leading-relaxed max-w-2xl mx-auto md:mx-0">

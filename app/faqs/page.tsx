@@ -80,7 +80,13 @@ const faqs: FAQItem[] = [
         Greenpoint Facialist is located within the beautiful Held Space offices on the 4th floor at 960 Manhattan Ave,
         Brooklyn in the Greenpoint neighborhood. When you book, you will be sent an email with instructions and a door code
         to enter the building. I practice within Flossie McCall Acupuncture, I highly recommend her services. You can view
-        her offerings here.
+        her offerings {' '}
+        <a
+          href="https://www.flossiemccallacupuncture.com/"
+          className="text-brownDeep/70 hover:text-olive transition-colors duration-200"
+        >
+          here
+        </a>{''}.
       </p>
     ),
   },
@@ -102,7 +108,12 @@ const faqs: FAQItem[] = [
         to give your skin exactly what it needs. Elevated add ons like LED light therapy and clinical skincare upgrades are
         available with the 90 minute service. For first-time clients, I recommend a 90 minute session for an in-depth skin
         analysis and treatment plan. Heaven + Earth is also appropriate for most skin types, but not recommended for active
-        acne. Learn more about Greenpoint Facialist treatments here.
+        acne. Learn more about Greenpoint Facialist treatments <a
+          href="https://www.greenpointfacialist.com/services"
+          className="text-brownDeep/70 hover:text-olive transition-colors duration-200"
+        >
+          here
+        </a>{''}.
       </p>
     ),
   },
