@@ -2,6 +2,7 @@
 
 import { Header } from './Header'
 import { Footer } from './Footer'
+import { EmailPopup } from './EmailPopup'
 
 export function Layout({ children }: { children: React.ReactNode }) {
   return (
@@ -16,6 +17,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
       <Header />
       <main className="min-w-0 w-full">{children}</main>
       <Footer />
+      <EmailPopup />
     </div>
   )
 }
