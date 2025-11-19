@@ -443,7 +443,7 @@ export function NeighborhoodMap({
     <div className="relative w-full max-w-xl aspect-square mx-auto rounded-3xl border border-brownDeep/20 overflow-hidden shadow-inner md:max-w-md lg:max-w-sm">
       <MapContainer
         center={[averagePosition.lat, averagePosition.lng]}
-        zoom={16}
+        zoom={14}
         scrollWheelZoom={false}
         className="h-full w-full"
         ref={mapRef}

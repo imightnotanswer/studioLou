@@ -44,6 +44,14 @@ const faqs: FAQItem[] = [
     ),
   },
   {
+    question: 'How can I pay for my service?',
+    answer: (
+      <p>
+        The studio accepts credit and debit card payments. Cash is accepted for the remaining balance of your service and retail products, but please note that limited cash is kept on hand for change.
+      </p>
+    ),
+  },
+  {
     question: 'How should I prepare for my appointment?',
     answer: (
       <p>
@@ -122,7 +130,7 @@ const faqs: FAQItem[] = [
     answer: (
       <p>
         A package of three 60-minute 'Edit' facials is available to establish consistency in caring for your skin and to
-        maximize your results. Purchase of package includes a complementary LED light therapy upgrade with each facial.
+        maximize your results. Purchase of a package includes a complementary LED light therapy upgrade with each facial.
       </p>
     ),
   },
@@ -161,9 +169,8 @@ export default function FAQsContent() {
                   </h2>
                   <div className="flex-shrink-0 w-6 h-6 flex items-center justify-center">
                     <svg
-                      className={`w-5 h-5 text-brownDeep group-hover:text-olive transition-all duration-200 ${
-                        isOpen ? 'rotate-45' : ''
-                      }`}
+                      className={`w-5 h-5 text-brownDeep group-hover:text-olive transition-all duration-200 ${isOpen ? 'rotate-45' : ''
+                        }`}
                       fill="none"
                       stroke="currentColor"
                       viewBox="0 0 24 24"
@@ -178,9 +185,8 @@ export default function FAQsContent() {
                   </div>
                 </button>
                 <div
-                  className={`overflow-hidden transition-all duration-300 ease-in-out ${
-                    isOpen ? 'max-h-[1000px] opacity-100 mt-3' : 'max-h-0 opacity-0'
-                  }`}
+                  className={`overflow-hidden transition-all duration-300 ease-in-out ${isOpen ? 'max-h-[1000px] opacity-100 mt-3' : 'max-h-0 opacity-0'
+                    }`}
                 >
                   <div className="text-brownDeep/90 leading-relaxed">
                     {faq.answer}

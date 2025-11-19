@@ -91,9 +91,14 @@ export default function AboutPage() {
                 Ashley Guttuso, New York State licensed aesthetician
               </p>
             </div>
-            <p className="text-brownDeep leading-relaxed max-w-3xl">
-              My work is guided by an appreciation for both precision and presence - where technique meets touch, and results unfold through care. My experience spans from the rhythm of fast-paced Upper West Side and West Village spas to the intimacy of a boutique facial studio. I’m a firm believer in trusting our skin’s natural intelligence, and pairing the very best botanical skincare with thoroughly vetted clinical care for advanced results. With a focus on intentional, restorative touch, my hands are my most essential tool - a means to communicate calm, lift tension, and invite the nervous system into balance.
-            </p>
+            <div className="text-brownDeep leading-relaxed max-w-3xl space-y-4">
+              <p>
+                In 2018, I traded the energy of New York for the quiet of the desert and immersed myself in a small, holistically-focused aesthetics school in Tucson, Arizona. My foundation in organic skincare, intuitive touch, and whole-body wellness is supported by my advanced training in Gua Sha Facial Fusion with Cecily Braden and the Vodder Method of Manual Lymphatic Drainage with Anne Brahman through ASTECC.
+              </p>
+              <p>
+                My experience spans from fast-paced Upper West Side and West Village spas to the intimacy of a boutique facial studio. I'm a firm believer in trusting our skin's natural intelligence, and pairing the very best botanical skincare with clinical care for advanced results. With a focus on intentional, restorative touch, my hands are my most essential tool - a means to communicate calm, lift tension, and invite the nervous system into balance.
+              </p>
+            </div>
           </section>
 
           <section className="space-y-6 pt-10 border-t border-brownDeep">

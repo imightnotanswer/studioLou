@@ -27,7 +27,7 @@ export default function ServicesPage() {
           duration: '90 minutes',
           description: (
             <>
-              <strong>90 minutes |</strong> With 30 additional minutes, two advanced treatments are included; an <strong>upgraded mask treatment</strong> along with <strong>LED light therapy with a peptide enhancement</strong>. An advanced clinical treatment mask will include either an <strong>oxygenating facial treatment</strong> for dull, aging or acne-prone skin or a <strong>firming, hydrating Alginate mask</strong>. LED therapy encourages cellular renewal and collagen production, kills acne-causing bacteria, brightens and supports long-term skin vitality.
+              <strong>90 minutes |</strong> With 30 additional minutes, two advanced treatments are included; an <strong>upgraded mask treatment</strong> along with <strong>LED light therapy with a peptide enhancement</strong>. An advanced clinical treatment mask will include either an <strong>oxygenating facial treatment</strong> for dull, aging or acne-prone skin or a <strong>firming, hydrating Alginate mask</strong>. LED therapy encourages cellular renewal and collagen production, kills the acne-causing c.acnes bacteria, brightens, and supports long-term skin vitality.
             </>
           ),
           whoFor: `Anyone looking for an advanced, luxe facial that delivers both visible results and a restorative experience. Ideal for skin showing early signs of laxity, dullness, or fatigue, and for anyone looking to tame inflammatory skin conditions like acne, dermatitis, or rosacea with a combination of advanced clinical and botanical skincare`,
