@@ -1,6 +1,6 @@
 'use client'
 
-import { useMemo, useState } from 'react'
+import { useMemo, useState, useRef } from 'react'
 
 import type { NeighborhoodSpot } from './NeighborhoodMap'
 import { NeighborhoodMap } from './NeighborhoodMap'
@@ -12,6 +12,7 @@ interface NeighborhoodGuideProps {
 export default function NeighborhoodGuide({ spots }: NeighborhoodGuideProps) {
     const [hoveredSpot, setHoveredSpot] = useState<string | null>(null)
     const [selectedSpot, setSelectedSpot] = useState<string | null>(null)
+    const explicitlySelectedRef = useRef<string | null>(null)
 
     const groupedSpots = useMemo(() => {
         const midpoint = Math.ceil(spots.length / 2)
@@ -24,8 +25,10 @@ export default function NeighborhoodGuide({ spots }: NeighborhoodGuideProps) {
 
     const handleSpotSelect = (spotName: string | null) => {
         setSelectedSpot(spotName)
+        explicitlySelectedRef.current = spotName
         if (!spotName) {
             setHoveredSpot(null)
+            explicitlySelectedRef.current = null
         }
     }
 
@@ -39,7 +42,22 @@ export default function NeighborhoodGuide({ spots }: NeighborhoodGuideProps) {
                             return (
                                 <span
                                     key={spot.name}
-                                    className={`block transition-all duration-200 ${isActive ? 'font-semibold text-olive' : 'font-normal text-brownDeep/80'
+                                    onMouseEnter={() => {
+                                        if (window.innerWidth >= 768) {
+                                            setHoveredSpot(spot.name)
+                                            setSelectedSpot(spot.name)
+                                        }
+                                    }}
+                                    onMouseLeave={() => {
+                                        if (window.innerWidth >= 768) {
+                                            // Only clear if this spot wasn't explicitly selected via click
+                                            if (explicitlySelectedRef.current !== spot.name) {
+                                                setHoveredSpot(null)
+                                                setSelectedSpot(null)
+                                            }
+                                        }
+                                    }}
+                                    className={`block transition-all duration-200 cursor-pointer ${isActive ? 'font-semibold text-olive' : 'font-normal text-brownDeep/80'
                                         }`}
                                 >
                                     {spot.name}
