@@ -1,10 +1,11 @@
 'use client'
 
 import Link from 'next/link'
+import { IMNALogo } from './IMNALogo'
 
 export function Footer() {
   return (
-    <footer className="bg-cream py-0 md:py-8 border-t border-brownDeep/10 shadow-[0_-1px_2px_0_rgb(68,10,9,0.05)]">
+    <footer className="bg-cream py-0 md:py-8 border-t border-brownDeep/10 shadow-[0_-1px_2px_0_rgb(68,10,9,0.05)] relative pb-8 md:pb-0">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-0.5 md:py-0">
         <div className="text-center text-brownDeep">
           <div className="flex flex-col items-center justify-center gap-1 md:flex-row md:gap-6 text-xs md:text-base leading-tight md:leading-relaxed">
@@ -38,8 +39,28 @@ export function Footer() {
               <span className="hidden md:inline">@greenpointfacialist</span>
             </Link>
           </div>
+          {/* Mobile: Logo underneath Instagram */}
+          <div className="md:hidden mt-5 flex justify-center">
+            <a
+              href="https://www.imightnotanswer.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:opacity-50 transition-opacity duration-200 opacity-30"
+            >
+              <IMNALogo variant="horizontal" className="w-24 h-6" />
+            </a>
+          </div>
         </div>
       </div>
+      {/* Desktop: Bottom right logo - faint */}
+      <a
+        href="https://www.imightnotanswer.com"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="hidden md:block absolute bottom-1 right-2 hover:opacity-30 transition-opacity duration-1000 ease-in-out opacity-60"
+      >
+        <IMNALogo variant="grid" className="w-14 h-14" />
+      </a>
     </footer>
   )
 }
