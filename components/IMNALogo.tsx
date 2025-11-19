@@ -21,7 +21,7 @@ export function IMNALogo({ className = '', variant = 'grid' }: IMNALogoProps) {
     // Horizontal layout for mobile
     const letterSpacing = 14
     const startX = 7
-    const fontSize = 22
+    const fontSize = 20
 
     return (
       <svg

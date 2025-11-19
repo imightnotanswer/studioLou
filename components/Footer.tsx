@@ -47,7 +47,7 @@ export function Footer() {
               rel="noopener noreferrer"
               className="hover:opacity-50 transition-opacity duration-200 opacity-30"
             >
-              <IMNALogo variant="horizontal" className="w-24 h-6" />
+              <IMNALogo variant="horizontal" className="w-36 h-9" />
             </a>
           </div>
         </div>
