@@ -5,10 +5,10 @@ import { IMNALogo } from './IMNALogo'
 
 export function Footer() {
   return (
-    <footer className="bg-cream py-0 md:py-8 border-t border-brownDeep/10 shadow-[0_-1px_2px_0_rgb(68,10,9,0.05)] relative pb-8 md:pb-0">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-0.5 md:py-0">
+    <footer className="bg-cream py-0 md:py-8 border-t border-brownDeep/10 shadow-[0_-1px_2px_0_rgb(68,10,9,0.05)] relative pb-0 md:pb-0">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-0 md:py-0">
         <div className="text-center text-brownDeep">
-          <div className="flex flex-col items-center justify-center gap-1 md:flex-row md:gap-6 text-xs md:text-base leading-tight md:leading-relaxed">
+          <div className="flex flex-col items-center justify-center gap-0 md:flex-row md:gap-6 text-xs md:text-base leading-tight md:leading-relaxed">
             <a
               href="mailto:hello@greenpointfacialist.com"
               className="hover:text-olive transition-colors duration-200"
@@ -25,7 +25,7 @@ export function Footer() {
               className="hover:text-olive transition-colors duration-200 inline-flex items-center gap-2"
             >
               <svg
-                className="w-5 h-5"
+                className="w-6 h-6 md:w-5 md:h-5"
                 fill="currentColor"
                 viewBox="0 0 24 24"
                 aria-hidden="true"
@@ -40,7 +40,7 @@ export function Footer() {
             </Link>
           </div>
           {/* Mobile: Logo underneath Instagram */}
-          <div className="md:hidden mt-5 flex justify-center">
+          <div className="md:hidden mt-4 flex justify-center">
             <a
               href="https://www.imightnotanswer.com"
               target="_blank"
