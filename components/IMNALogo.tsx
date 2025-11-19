@@ -3,114 +3,75 @@ interface IMNALogoProps {
   variant?: 'grid' | 'horizontal'
 }
 
+// Brand colors cycling through the letters
+const brandColors = [
+  '#a1aa2e', // olive
+  '#9ab4c1', // blueSoft
+  '#b72b0f', // orangeBurnt
+  '#440a09', // brownDeep
+  '#818642', // sage
+  '#0b3249', // navy
+  '#700303', // maroon
+]
+
+const word = 'imightnotanswer'
+
 export function IMNALogo({ className = '', variant = 'grid' }: IMNALogoProps) {
   if (variant === 'horizontal') {
-    // Horizontal layout for mobile - just letters
+    // Horizontal layout for mobile
+    const letterSpacing = 14
+    const startX = 7
+    const fontSize = 22
+
     return (
       <svg
-        viewBox="0 0 80 40"
+        viewBox={`0 0 ${word.length * letterSpacing} 35`}
         className={className}
         xmlns="http://www.w3.org/2000/svg"
       >
-        <text
-          x="10"
-          y="28"
-          textAnchor="middle"
-          fill="#a1aa2e"
-          fontSize="24"
-          fontWeight="bold"
-          fontFamily="sans-serif"
-        >
-          I
-        </text>
-        <text
-          x="30"
-          y="28"
-          textAnchor="middle"
-          fill="#9ab4c1"
-          fontSize="24"
-          fontWeight="bold"
-          fontFamily="sans-serif"
-        >
-          M
-        </text>
-        <text
-          x="50"
-          y="28"
-          textAnchor="middle"
-          fill="#b72b0f"
-          fontSize="24"
-          fontWeight="bold"
-          fontFamily="sans-serif"
-        >
-          N
-        </text>
-        <text
-          x="70"
-          y="28"
-          textAnchor="middle"
-          fill="#440a09"
-          fontSize="24"
-          fontWeight="bold"
-          fontFamily="sans-serif"
-        >
-          A
-        </text>
+        {word.split('').map((letter, index) => (
+          <text
+            key={index}
+            x={startX + index * letterSpacing}
+            y="26"
+            textAnchor="middle"
+            fill={brandColors[index % brandColors.length]}
+            fontSize={fontSize}
+            fontWeight="bold"
+            fontFamily="sans-serif"
+          >
+            {letter}
+          </text>
+        ))}
       </svg>
     )
   }
 
-  // Grid layout for desktop - just letters, smaller and closer together
+  // Horizontal layout for desktop - smaller with proper spacing
+  const letterSpacing = 10
+  const startX = 6
+  const fontSize = 16
+
   return (
     <svg
-      viewBox="0 0 50 50"
+      viewBox={`0 0 ${word.length * letterSpacing} 25`}
       className={className}
       xmlns="http://www.w3.org/2000/svg"
     >
-      <text
-        x="20"
-        y="25"
-        textAnchor="middle"
-        fill="#a1aa2e"
-        fontSize="18"
-        fontWeight="bold"
-        fontFamily="sans-serif"
-      >
-        I
-      </text>
-      <text
-        x="38"
-        y="25"
-        textAnchor="middle"
-        fill="#9ab4c1"
-        fontSize="18"
-        fontWeight="bold"
-        fontFamily="sans-serif"
-      >
-        M
-      </text>
-      <text
-        x="20"
-        y="45"
-        textAnchor="middle"
-        fill="#b72b0f"
-        fontSize="18"
-        fontWeight="bold"
-        fontFamily="sans-serif"
-      >
-        N
-      </text>
-      <text
-        x="38"
-        y="45"
-        textAnchor="middle"
-        fill="#440a09"
-        fontSize="18"
-        fontWeight="bold"
-        fontFamily="sans-serif"
-      >
-        A
-      </text>
+      {word.split('').map((letter, index) => (
+        <text
+          key={index}
+          x={startX + index * letterSpacing}
+          y="23"
+          textAnchor="middle"
+          fill={brandColors[index % brandColors.length]}
+          fontSize={fontSize}
+          fontWeight="bold"
+          fontFamily="sans-serif"
+        >
+          {letter}
+        </text>
+      ))}
     </svg>
   )
 }

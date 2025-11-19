@@ -57,9 +57,9 @@ export function Footer() {
         href="https://www.imightnotanswer.com"
         target="_blank"
         rel="noopener noreferrer"
-        className="hidden md:block absolute bottom-1 right-2 hover:opacity-30 transition-opacity duration-1000 ease-in-out opacity-60"
+        className="hidden md:block absolute bottom-2 right-4 hover:opacity-90 transition-opacity duration-1000 ease-in-out opacity-30"
       >
-        <IMNALogo variant="grid" className="w-14 h-14" />
+        <IMNALogo variant="grid" className="w-auto h-6" />
       </a>
     </footer>
   )
