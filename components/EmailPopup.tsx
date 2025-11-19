@@ -97,7 +97,7 @@ export function EmailPopup() {
     }
 
     return (
-        <div className="fixed inset-0 z-[9999] flex items-center justify-center bg-brownDeep/30 backdrop-blur-sm px-4">
+        <div className="fixed inset-0 z-[9999] flex items-center justify-center bg-blueSoft/30 backdrop-blur-sm px-4">
             <div className="relative bg-cream border border-brownDeep/20 rounded-xl shadow-2xl max-w-sm w-full p-6 md:p-8">
                 <button
                     onClick={() => setShowPopup(false)}
