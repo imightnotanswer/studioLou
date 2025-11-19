@@ -10,10 +10,11 @@ export function Layout({ children }: { children: React.ReactNode }) {
         min-h-[100dvh]               /* dynamic viewport height (iOS/Android safe) */
         grid grid-rows-[auto_1fr_auto]  /* header | main (fills) | footer */
         bg-cream text-brownDeep
+        w-full
       "
     >
       <Header />
-      <main className="min-w-0">{children}</main>
+      <main className="min-w-0 w-full">{children}</main>
       <Footer />
     </div>
   )

@@ -61,12 +61,12 @@ export function Header() {
 
   return (
     <header
-      className={`sticky top-0 z-50 transition-all duration-300 ${isHomepage && !scrolled
+      className={`sticky top-0 z-50 w-full transition-all duration-300 ${isHomepage && !scrolled
         ? 'bg-transparent'
         : 'bg-cream shadow-sm'
         }`}
     >
-      <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
         <div className="relative flex items-center justify-between h-12 md:h-20">
           <div className="flex-1 flex items-center justify-start">
             <Button

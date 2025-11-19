@@ -7,6 +7,7 @@ import WaterRippleBackground from '@/components/WaterRippleBackground'
 export default function HomePage() {
   const [showPopup, setShowPopup] = useState(false)
   const [submitted, setSubmitted] = useState(false)
+  const [isSubmitting, setIsSubmitting] = useState(false)
 
   useEffect(() => {
     const hasSeenPopup = sessionStorage.getItem('gpf-popup-dismissed')
@@ -23,9 +24,33 @@ export default function HomePage() {
     return () => window.clearTimeout(timer)
   }, [])
 
-  const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault()
-    setSubmitted(true)
+    setIsSubmitting(true)
+
+    const formData = new FormData(event.currentTarget)
+    const email = formData.get('email')
+
+    try {
+      const response = await fetch('https://formspree.io/f/xanvoqbb', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ email }),
+      })
+
+      if (response.ok) {
+        setSubmitted(true)
+      } else {
+        throw new Error('Form submission failed')
+      }
+    } catch (error) {
+      console.error('Error submitting form:', error)
+      alert('There was an error submitting your email. Please try again.')
+    } finally {
+      setIsSubmitting(false)
+    }
   }
 
   return (
@@ -57,15 +82,18 @@ export default function HomePage() {
               <form className="space-y-4" onSubmit={handleSubmit}>
                 <input
                   type="email"
+                  name="email"
                   required
                   placeholder="Email address"
-                  className="w-full rounded-full border border-brownDeep/20 bg-white px-4 py-2 text-sm md:text-base text-brownDeep placeholder-brownDeep/40 focus:outline-none focus:ring-2 focus:ring-olive/60"
+                  disabled={isSubmitting}
+                  className="w-full rounded-full border border-brownDeep/20 bg-white px-4 py-2 text-sm md:text-base text-brownDeep placeholder-brownDeep/40 focus:outline-none focus:ring-2 focus:ring-olive/60 disabled:opacity-50 disabled:cursor-not-allowed"
                 />
                 <button
                   type="submit"
-                  className="w-full inline-flex items-center justify-center rounded-full px-5 py-2.5 bg-brownDeep text-white text-sm md:text-base font-medium hover:bg-olive transition-colors duration-200"
+                  disabled={isSubmitting}
+                  className="w-full inline-flex items-center justify-center rounded-full px-5 py-2.5 bg-brownDeep text-white text-sm md:text-base font-medium hover:bg-olive transition-colors duration-200 disabled:opacity-50 disabled:cursor-not-allowed"
                 >
-                  Submit
+                  {isSubmitting ? 'Submitting...' : 'Submit'}
                 </button>
               </form>
             )}
