@@ -2,6 +2,7 @@
 
 import { useState } from 'react'
 import type { ReactNode } from 'react'
+import { openSquareBooking } from '@/components/SquareBookingWidget'
 
 interface FAQItem {
   question: string
@@ -14,14 +15,12 @@ const faqs: FAQItem[] = [
     answer: (
       <p>
         You can conveniently book online{' '}
-        <a
-          href="https://squareup.com/appointments/book"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="text-brownDeep/70 hover:text-olive transition-colors duration-200"
+        <button
+          onClick={openSquareBooking}
+          className="text-brownDeep/70 hover:text-olive transition-colors duration-200 underline cursor-pointer"
         >
           here
-        </a>
+        </button>
         , or email{' '}
         <a
           href="mailto:hello@greenpointfacialist.com"

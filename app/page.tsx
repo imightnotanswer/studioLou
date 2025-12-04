@@ -2,6 +2,7 @@
 
 import { Button } from '@/components/Button'
 import WaterRippleBackground from '@/components/WaterRippleBackground'
+import { openSquareBooking } from '@/components/SquareBookingWidget'
 
 export default function HomePage() {
   return (
@@ -15,7 +16,7 @@ export default function HomePage() {
           </h1>
         </div>
         <div className="pt-2 md:pt-4">
-          <Button href="https://squareup.com/appointments/book" className="text-cream text-xs md:text-base py-1.5 px-3 md:py-3 md:px-6">BOOK A FACIAL</Button>
+          <Button onClick={openSquareBooking} className="text-cream text-xs md:text-base py-1.5 px-3 md:py-3 md:px-6">BOOK A FACIAL</Button>
         </div>
       </div>
     </div>

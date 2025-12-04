@@ -4,6 +4,7 @@ import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { useState, useEffect, useRef } from 'react'
 import { Button } from '@/components/Button'
+import { openSquareBooking } from '@/components/SquareBookingWidget'
 
 export function Header() {
   const pathname = usePathname()
@@ -70,7 +71,7 @@ export function Header() {
         <div className="relative flex items-center justify-between h-12 md:h-20">
           <div className="flex-1 flex items-center justify-start">
             <Button
-              href="https://squareup.com/appointments/book"
+              onClick={openSquareBooking}
               className="px-3 py-1 text-xs md:px-5 md:py-1.5 md:text-sm bg-brownDeep/90 hover:bg-brownDeep"
             >
               Book

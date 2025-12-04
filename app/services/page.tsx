@@ -1,4 +1,4 @@
-import { Button } from '@/components/Button'
+import { BookingButton } from '@/components/BookingButton'
 import { ServiceCard } from '@/components/ServiceCard'
 
 export const metadata = {
@@ -58,7 +58,7 @@ export default function ServicesPage() {
             </p>
           </div>
           <div className="mt-8">
-            <Button href="https://squareup.com/appointments/book">BOOK NOW</Button>
+            <BookingButton>BOOK NOW</BookingButton>
           </div>
         </div>
 
@@ -69,7 +69,7 @@ export default function ServicesPage() {
         </div>
 
         <div className="mt-12 md:mt-16 pt-8">
-          <Button href="https://squareup.com/appointments/book">BOOK NOW</Button>
+          <BookingButton>BOOK NOW</BookingButton>
         </div>
       </div>
     </div>

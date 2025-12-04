@@ -3,6 +3,7 @@
 import { Header } from './Header'
 import { Footer } from './Footer'
 import { EmailPopup } from './EmailPopup'
+import { SquareBookingModal } from './SquareBookingWidget'
 
 export function Layout({ children }: { children: React.ReactNode }) {
   return (
@@ -18,6 +19,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
       <main className="min-w-0 w-full">{children}</main>
       <Footer />
       <EmailPopup />
+      <SquareBookingModal />
     </div>
   )
 }

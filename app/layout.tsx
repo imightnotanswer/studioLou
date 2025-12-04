@@ -20,6 +20,11 @@ export default function RootLayout({
         <link rel="preconnect" href="https://maps.googleapis.com" />
         <link rel="dns-prefetch" href="https://www.google.com" />
         <link rel="dns-prefetch" href="https://maps.googleapis.com" />
+        {/* Preconnect to Square for faster booking widget loading */}
+        <link rel="preconnect" href="https://square.site" />
+        <link rel="preconnect" href="https://app.squareup.com" />
+        <link rel="dns-prefetch" href="https://square.site" />
+        <link rel="dns-prefetch" href="https://app.squareup.com" />
       </head>
       <body
         className={`${presicav.variable} ${acmeGothic.variable} ${accent.variable}`}
