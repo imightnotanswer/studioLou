@@ -13,7 +13,7 @@ interface ServiceCardProps {
   duration: string
   description: string | React.ReactNode
   whoFor?: string | string[]
-  features?: string[]
+  features?: (string | React.ReactNode)[]
   highlights?: string | React.ReactNode
   durationOptions?: DurationOption[]
   packageNote?: string

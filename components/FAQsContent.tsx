@@ -37,8 +37,8 @@ const faqs: FAQItem[] = [
     question: 'What is your cancellation policy?',
     answer: (
       <p>
-        Appointments must be cancelled 36 hours in advance. Cancellations within 36 hours of your appointment forfeit
-        the depost. 100% of the service cost is due for no-show appointments.
+        Appointments must be canceled at least 24 hours in advance. Cancellations within 24 hours of your appointment forfeit
+        the deposit. 100% of the service cost is due for no-show appointments.
       </p>
     ),
   },
@@ -47,6 +47,21 @@ const faqs: FAQItem[] = [
     answer: (
       <p>
         The studio accepts credit and debit card payments. Cash is accepted for the remaining balance of your service and retail products, but please note that limited cash is kept on hand for change.
+      </p>
+    ),
+  },
+  {
+    question: 'Do you offer gift cards?',
+    answer: (
+      <p>
+        Yes! Digital gift cards are currently available. You can purchase cards in any amount starting at $75.{' '}
+        <a
+          href="#"
+          className="text-brownDeep/70 hover:text-olive transition-colors duration-200 underline"
+        >
+          Click here to purchase a gift card
+        </a>
+        .
       </p>
     ),
   },
@@ -109,11 +124,11 @@ const faqs: FAQItem[] = [
     question: "I don't know what my skin needs, which service should I book?",
     answer: (
       <p>
-        'The Edit' facials - both 60 and 90 minutes - are fully customizable, meaning I work within the scheduled timeframe
+        <strong>The Edit</strong> facials - both 60 and 90 minutes - are fully customizable, meaning I work within the scheduled time frame
         to give your skin exactly what it needs. Elevated add ons like LED light therapy and clinical skincare upgrades are
         available with the 90 minute service. For first-time clients, I recommend a 90 minute session for an in-depth skin
-        analysis and treatment plan. Heaven + Earth is also appropriate for most skin types, but not recommended for active
-        acne. Learn more about Greenpoint Facialist treatments{' '}
+        analysis and treatment plan. <strong>Heaven + Earth</strong> is also appropriate for most skin types, but not recommended for active
+        acne. <strong>The Remedy</strong> facial is a holistic-meets-clinical treatment for accelerated results. I recommend first-time clients book a 60 or 90 minute Edit facial prior to a nanoneedling facial. Learn more about Greenpoint Facialist treatments{' '}
         <a
           href="https://www.greenpointfacialist.com/services"
           className="text-brownDeep/70 hover:text-olive transition-colors duration-200"
@@ -128,8 +143,20 @@ const faqs: FAQItem[] = [
     question: 'Do you offer packages?',
     answer: (
       <p>
-        A package of three 60-minute 'Edit' facials is available to establish consistency in caring for your skin and to
-        maximize your results. Purchase of a package includes a complementary LED light therapy upgrade with each facial.
+        Packages are available to establish consistency in caring for your skin and to maximize your results.
+        <br /><br />
+        A package of three 60-minute 'The Edit' facials includes a complementary LED light therapy upgrade with each facial.
+        <br /><br />
+        A package of three Remedy nanoneedling facials is also available to accelerate your results.
+        <br /><br />
+        See the package page{' '}
+        <a
+          href="#"
+          className="text-brownDeep/70 hover:text-olive transition-colors duration-200 underline"
+        >
+          here
+        </a>
+        .
       </p>
     ),
   },
