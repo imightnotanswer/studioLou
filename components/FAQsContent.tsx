@@ -56,7 +56,9 @@ const faqs: FAQItem[] = [
       <p>
         Yes! Digital gift cards are currently available. You can purchase cards in any amount starting at $75.{' '}
         <a
-          href="#"
+          href="https://app.squareup.com/gift/MLQC4NQAETPE4/order"
+          target="_blank"
+          rel="noopener noreferrer"
           className="text-brownDeep/70 hover:text-olive transition-colors duration-200 underline"
         >
           Click here to purchase a gift card

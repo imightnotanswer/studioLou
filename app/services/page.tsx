@@ -45,7 +45,7 @@ export default function ServicesPage() {
     },
     {
       title: 'The Remedy',
-      duration: '70 minutes',
+      duration: '75 minutes',
       description:
         `This treatment is a corrective reset for skin in need of visible results. Clinical results meet holistic skincare with this non-invasive, professional-grade treatment to accelerate skin renewal. Odacite's Nano-infusion Nanoneedling gently opens thousands of microchannels in the skin to deliver potent actives more deeply and effectively, fast-tracking results without the downtime. Based on your skincare goals, one of the following treatments will be selected:`,
       features: [
