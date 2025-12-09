@@ -46,13 +46,18 @@ export default function ServicesPage() {
     {
       title: 'The Remedy',
       duration: '75 minutes',
-      description:
-        `This treatment is a corrective reset for skin in need of visible results. Clinical results meet holistic skincare with this non-invasive, professional-grade treatment to accelerate skin renewal. Odacite's Nano-infusion Nanoneedling gently opens thousands of microchannels in the skin to deliver potent actives more deeply and effectively, fast-tracking results without the downtime. Based on your skincare goals, one of the following treatments will be selected:`,
-      features: [
-        <><strong>Brighten:</strong> Improves overall skin radiance, sun damage and hyperpigmentation, while boosting hydration.</>,
-        <><strong>Renew:</strong> Plumps fine lines and wrinkles and corrects uneven texture, while firming and hydrating the skin.</>,
-        <><strong>Clarify:</strong> Improves congestion, targets enlarged pores and uneven texture, while boosting skin hydration.</>,
-      ],
+      description: (
+        <>
+          <p>
+            This treatment is a corrective reset for skin in need of visible results. Clinical results meet holistic skincare with this non-invasive, professional-grade treatment to accelerate skin renewal. Odacite's Nano-infusion Nanoneedling gently opens thousands of microchannels in the skin to deliver potent actives more deeply and effectively, fast-tracking results without the downtime. Based on your skincare goals, one of the following treatments will be selected:
+          </p>
+          <div className="mt-4 space-y-2">
+            <p><strong>Brighten:</strong> Improves overall skin radiance, sun damage and hyperpigmentation, while boosting hydration.</p>
+            <p><strong>Renew:</strong> Plumps fine lines and wrinkles and corrects uneven texture, while firming and hydrating the skin.</p>
+            <p><strong>Clarify:</strong> Improves congestion, targets enlarged pores and uneven texture, while boosting skin hydration.</p>
+          </div>
+        </>
+      ),
       whoFor: `Designed for anyone seeking a non-invasive, professional-grade treatment that delivers both corrective results and restorative care. This treatment effectively addresses pigmentation, fine lines and wrinkles, uneven texture, dryness, congestion, and breakouts while supporting overall skin health and vitality. This is your go-to pre-event treatment; fresh, glowing skin without the downtime.`,
       highlights: `Treatment Highlights | Plant-based AHA peel, facial massage, Odacite Nanoneedling infusion, LED light therapy with a peptide enhancement, and functional aromatherapy.`,
       packageNote: `A package of three 'Remedy' facials is available. View booking page for details.`,
