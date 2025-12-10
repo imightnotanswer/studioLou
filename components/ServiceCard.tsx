@@ -16,7 +16,7 @@ interface ServiceCardProps {
   features?: (string | React.ReactNode)[]
   highlights?: string | React.ReactNode
   durationOptions?: DurationOption[]
-  packageNote?: string
+  packageNote?: string | React.ReactNode
 }
 
 function WhoForDropdown({ whoFor, id }: { whoFor: string; id: string }) {
@@ -99,11 +99,6 @@ export function ServiceCard({
                 <WhoForDropdown whoFor={option.whoFor} id={`${title}-${index}`} />
               </div>
             ))}
-            {packageNote && (
-              <p className="text-brownDeep/80 text-sm leading-relaxed italic">
-                {packageNote}
-              </p>
-            )}
           </div>
         ) : (
           // Single "Who this is for" (like Heaven + Earth)
@@ -150,6 +145,15 @@ export function ServiceCard({
               </p>
             ) : (
               highlights
+            )}
+          </div>
+        )}
+        {packageNote && (
+          <div className="text-brownDeep/80 text-sm leading-relaxed italic">
+            {typeof packageNote === 'string' ? (
+              <p>{packageNote}</p>
+            ) : (
+              packageNote
             )}
           </div>
         )}

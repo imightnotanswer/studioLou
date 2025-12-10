@@ -33,7 +33,18 @@ export default function ServicesPage() {
           whoFor: `Anyone looking for an advanced, luxe facial that delivers both visible results and a restorative experience. Ideal for skin showing early signs of laxity, dullness, or fatigue, and for anyone looking to tame inflammatory skin conditions like acne, dermatitis, or rosacea with a combination of advanced clinical and botanical skincare`,
         },
       ],
-      packageNote: `A package of three 60 minute ‘Edit’ facials is available. Purchase of a package includes an LED upgrade. View booking page for details. `,
+      packageNote: (
+        <>
+          A package of three 60 minute 'Edit' facials is available. Purchase of a package includes an LED upgrade.{' '}
+          <a
+            href="/packages"
+            className="text-brownDeep/70 hover:text-olive transition-colors duration-200 underline"
+          >
+            View here for details
+          </a>
+          .
+        </>
+      ),
     },
     {
       title: 'Heaven + Earth',
@@ -60,7 +71,18 @@ export default function ServicesPage() {
       ),
       whoFor: `Designed for anyone seeking a non-invasive, professional-grade treatment that delivers both corrective results and restorative care. This treatment effectively addresses pigmentation, fine lines and wrinkles, uneven texture, dryness, congestion, and breakouts while supporting overall skin health and vitality. This is your go-to pre-event treatment; fresh, glowing skin without the downtime.`,
       highlights: `Highlights | Plant-based AHA peel, facial massage, Odacite Nanoneedling infusion, LED light therapy with a peptide enhancement, and functional aromatherapy.`,
-      packageNote: `A package of three 'Remedy' facials is available. View booking page for details.`,
+      packageNote: (
+        <>
+          A package of three 'Remedy' facials is available.{' '}
+          <a
+            href="/packages"
+            className="text-brownDeep/70 hover:text-olive transition-colors duration-200 underline"
+          >
+            View here for details
+          </a>
+          .
+        </>
+      ),
     },
   ]
 
