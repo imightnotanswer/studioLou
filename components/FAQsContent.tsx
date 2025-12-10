@@ -153,7 +153,7 @@ const faqs: FAQItem[] = [
         <br /><br />
         See the package page{' '}
         <a
-          href="#"
+          href="/packages"
           className="text-brownDeep/70 hover:text-olive transition-colors duration-200 underline"
         >
           here

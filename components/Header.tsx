@@ -46,6 +46,7 @@ export function Header() {
   const navLinks = [
     { href: '/', label: 'HOME' },
     { href: '/services', label: 'SERVICES' },
+    { href: '/packages', label: 'PACKAGES' },
     { href: '/about', label: 'ABOUT' },
     { href: '/faqs', label: 'FAQs' },
     { href: '/contact', label: 'CONTACT' },
@@ -55,6 +56,7 @@ export function Header() {
     if (href === '/' && pathname === '/') return true
     if (href === '/faqs' && pathname === '/faqs') return true
     if (href === '/services' && pathname === '/services') return true
+    if (href === '/packages' && pathname === '/packages') return true
     if (href === '/about' && pathname === '/about') return true
     if (href === '/contact' && pathname === '/contact') return true
     return false
