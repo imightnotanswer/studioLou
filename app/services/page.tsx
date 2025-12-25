@@ -18,19 +18,19 @@ export default function ServicesPage() {
           duration: '60 minutes',
           description: (
             <>
-              <strong>60 minutes |</strong> This comprehensive hour-long facial is the foundation of ‘The Edit.’ Customized exfoliation, extractions (as needed), techniques that may include tension-relieving facial massage and manual lymphatic drainage, regenerative décolleté care, and a targeted treatment mask are included in this well-rounded facial to effectively address your goals.
+              <strong>60 minutes |</strong> Customized exfoliation, extractions (as needed), tension-relieving facial massage, manual lymphatic drainage, a customized mask treatment, and regenerative décolleté care.
             </>
           ),
-          whoFor: `For anyone seeking an effective yet restorative facial experience - perfect as a seasonal reset or as regular maintenance. This facial is ideal for skin showing signs of congestion, breakouts, dullness, dehydration, or uneven texture and tone. It's designed to deliver visible results and a sense of calm and renewal, whether your skin needs a fresh start or a regular dose of balance and vitality.`,
+          whoFor: `Those with congestion, breakouts, dullness, dehydration, or uneven texture and tone, seeking visible results, calm, renewal, balance, and vitality.`,
         },
         {
           duration: '90 minutes',
           description: (
             <>
-              <strong>90 minutes |</strong> With 30 additional minutes, two advanced treatments are included; an <strong>upgraded mask treatment</strong> along with <strong>LED light therapy with a peptide enhancement</strong>. An advanced clinical treatment mask will include either an <strong>oxygenating facial treatment</strong> for dull, aging or acne-prone skin or a <strong>firming, hydrating Alginate mask</strong>. LED therapy encourages cellular renewal and collagen production, kills the acne-causing c.acnes bacteria, brightens, and supports long-term skin vitality.
+              <strong>90 minutes |</strong> With 30 additional minutes, two advanced treatments are included: an advanced mask tailored to the individual and LED light therapy with a peptide enhancement. LED therapy's benefits include cellular renewal, collagen production, killing acne-causing bacteria, brightening, and long-term skin vitality.
             </>
           ),
-          whoFor: `Anyone looking for an advanced, luxe facial that delivers both visible results and a restorative experience. Ideal for skin showing early signs of laxity, dullness, or fatigue, and for anyone looking to tame inflammatory skin conditions like acne, dermatitis, or rosacea with a combination of advanced clinical and botanical skincare`,
+          whoFor: `Anyone seeking an advanced, luxe facial with visible results and a restorative experience, especially for early signs of laxity, dullness, fatigue, or inflammatory skin conditions like acne, dermatitis, or rosacea, utilizing advanced clinical and botanical skincare.`,
         },
       ],
       packageNote: (
@@ -109,7 +109,7 @@ export default function ServicesPage() {
           ))}
         </div>
 
-        <div className="mt-12 md:mt-16 pt-8">
+        <div className="mt-12 md:mt-16 pt-8 flex">
           <BookingButton>BOOK NOW</BookingButton>
         </div>
       </div>
