@@ -95,7 +95,7 @@ export default function ServicesPage() {
           </h1>
           <div className="text-brownDeep leading-relaxed max-w-3xl">
             <p>
-              Greenpoint Facialist treatments are an intentional blend of results-driven care and restorative ritual. Each service is fully tailored to meet your skin's current mood. Your facial will feature luxurious, bioactive botanical skincare that is thoughtfully paired with select clinical formulas and advanced technologies to achieve visible results. Intentional touch and massage are the heart of every treatment, while functional aromatherapy deepens the sensory experience and supports overall balance. All services can be thoughtfully tailored to accommodate pregnancy and sensitivity, so you can feel nurtured, supported, and radiant in your skin.
+              All facial treatments are an intentional blend of results-driven care and restorative ritual tailored to meet your skin's current mood. Your facial will feature luxurious, bioactive botanical skincare that is thoughtfully paired with select clinical formulas and advanced technologies to achieve visible results. Intentional touch and massage are the heart of every treatment, while functional aromatherapy deepens the sensory experience and supports overall balance. Services can be thoughtfully tailored to accommodate pregnancy and sensitivity.
             </p>
           </div>
           <div className="mt-8">
