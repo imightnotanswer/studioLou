@@ -101,12 +101,25 @@ export function ServiceCard({
             ))}
           </div>
         ) : (
-          // Single "Who this is for" (like Heaven + Earth)
+          // Single "Who this is for" (like Heaven + Earth or The Remedy)
           whoFor && (
-            <WhoForDropdown 
-              whoFor={Array.isArray(whoFor) ? whoFor.join(' ') : whoFor} 
-              id={title}
-            />
+            (() => {
+              const whoForText = Array.isArray(whoFor) ? whoFor.join(' ') : whoFor
+              // If it starts with "Who this is for |", display inline (Heaven + Earth)
+              if (whoForText.startsWith('Who this is for |')) {
+                const [, ...rest] = whoForText.split('|')
+                return (
+                  <div>
+                    <p className="text-brownDeep/80 text-sm leading-relaxed">
+                      <strong className="text-brownDeep">Who this is for |</strong>{' '}
+                      {rest.join('|').trim()}
+                    </p>
+                  </div>
+                )
+              }
+              // Otherwise use dropdown (The Remedy)
+              return <WhoForDropdown whoFor={whoForText} id={title} />
+            })()
           )
         )}
         {features && features.length > 0 && (

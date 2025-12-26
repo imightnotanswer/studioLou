@@ -12,37 +12,30 @@ export default function ServicesPage() {
       title: 'The Edit',
       duration: '60 or 90 minutes',
       description:
-        `Visible results meet deep relaxation in this comprehensive treatment designed for every complexion, every concern, every mood. Each treatment begins with an in-depth skin analysis to determine your needs and goals. Whether you're seeking deep hydration, barrier support, refined texture, a brighter and more even tone, visible firming, or care for reactive, inflamed skin conditions like acne or rosacea, the Edit delivers. Your skin will emerge hydrated, calm, radiant, and deeply restored.`,
+        `Visible results meet deep relaxation in this comprehensive treatment designed for every complexion and concern. Whether you're seeking deep hydration, barrier support, refined texture, a brighter and more even tone, visible firming, or care for reactive, inflamed skin conditions like acne or rosacea, the Edit delivers. Skin emerges hydrated, calm, radiant, and deeply restored.`,
       durationOptions: [
         {
           duration: '60 minutes',
           description: (
             <>
-              <strong>60 minutes |</strong> Customized exfoliation, extractions (as needed), tension-relieving facial massage, manual lymphatic drainage, a customized mask treatment, and regenerative décolleté care.
+              <strong>60 minutes |</strong> This comprehensive hour-long facial is the foundation of 'The Edit.' Customized exfoliation, extractions (as needed), techniques that may include tension-relieving facial massage and manual lymphatic drainage, a customized mask treatment, and regenerative décolleté care are featured.
             </>
           ),
-          whoFor: `Those with congestion, breakouts, dullness, dehydration, or uneven texture and tone, seeking visible results, calm, renewal, balance, and vitality.`,
+          whoFor: `This facial is ideal for skin showing signs of congestion, breakouts, dullness, dehydration, or uneven texture and tone. It's designed to deliver visible results and a sense of calm and renewal, whether your skin needs a fresh start or a regular dose of balance and vitality.`,
         },
         {
           duration: '90 minutes',
           description: (
             <>
-              <strong>90 minutes |</strong> With 30 additional minutes, two advanced treatments are included: an advanced mask tailored to the individual and LED light therapy with a peptide enhancement. LED therapy's benefits include cellular renewal, collagen production, killing acne-causing bacteria, brightening, and long-term skin vitality.
+              <strong>90 minutes |</strong> With 30 additional minutes, two advanced treatments are included; an advanced mask treatment tailored to you along with LED light therapy with a peptide enhancement. LED therapy encourages cellular renewal and collagen production, kills the acne-causing c.acnes bacteria, brightens, and supports long-term skin vitality.
             </>
           ),
-          whoFor: `Anyone seeking an advanced, luxe facial with visible results and a restorative experience, especially for early signs of laxity, dullness, fatigue, or inflammatory skin conditions like acne, dermatitis, or rosacea, utilizing advanced clinical and botanical skincare.`,
+          whoFor: `Anyone looking for an advanced, luxe facial that delivers both visible results and a restorative experience. Ideal for skin showing early signs of laxity, dullness, or fatigue, and for anyone looking to tame inflammatory skin conditions like acne, dermatitis, or rosacea with a combination of advanced clinical and botanical skincare.`,
         },
       ],
       packageNote: (
         <>
-          A package of three 60 minute 'Edit' facials is available. Purchase of a package includes an LED upgrade.{' '}
-          <a
-            href="/packages"
-            className="text-brownDeep/70 hover:text-olive transition-colors duration-200 underline"
-          >
-            View here for details
-          </a>
-          .
+          A package of three 60 minute 'Edit' facials is available. Purchase of a package includes an LED upgrade. View booking page for details.
         </>
       ),
     },
@@ -51,12 +44,12 @@ export default function ServicesPage() {
       duration: '70 minutes',
       description:
         `Where renewal meets release. This facial will leave your skin and self feeling completely uplifted, yet it's uniquely grounding. This facial harnesses powerful plant-based skincare with an extended focus on facial massage, including sculptural techniques, manual lymphatic drainage, and gentle cupping, all working in harmony to de-puff, release deep tension, and lift the skin with visible vitality. Each element is designed to reset both skin and spirit: skin emerges divinely fresh, luminous, and nourished, while your whole being feels deeply restored when you come back earthside.`,
-      whoFor: `Designed for those who carry tension in the face or jaw, experience puffiness, or simply for skin that feels dull, dry, and depleted. Perfect for when skin is feeling lackluster, during high-stress seasons, or whenever your skin needs a revitalizing reset and your body a full exhale.`,
-      highlights: `Highlights | Ceremonial Matcha Cleanse, Bioactive Rose Gommage Peel, extended facial massage, MLD + cupping, LED light therapy with a peptide enhancement, and functional aromatherapy. This treatment does not include extractions.`,
+      whoFor: `Who this is for | Designed for those who carry tension in the face or jaw, experience puffiness, or simply for skin that feels dull, dry, and depleted. Perfect for when skin is feeling lackluster, during high-stress seasons, or whenever your skin needs a revitalizing reset and your body a full exhale.`,
+      highlights: `Highlights | Ceremonial Matcha Cleanse, Bioactive Rose Gommage Peel, extended facial massage, MLD + cupping, LED light therapy with Sachi Skin peptide enhancement, and functional aromatherapy. This treatment does not include extractions.`,
     },
     {
       title: 'The Remedy',
-      duration: '75 minutes',
+      duration: '70 minutes',
       description: (
         <>
           <p>
@@ -70,17 +63,10 @@ export default function ServicesPage() {
         </>
       ),
       whoFor: `Designed for anyone seeking a non-invasive, professional-grade treatment that delivers both corrective results and restorative care. This treatment effectively addresses pigmentation, fine lines and wrinkles, uneven texture, dryness, congestion, and breakouts while supporting overall skin health and vitality. This is your go-to pre-event treatment; fresh, glowing skin without the downtime.`,
-      highlights: `Highlights | Plant-based AHA peel, facial massage, Odacite Nanoneedling infusion, LED light therapy with a peptide enhancement, and functional aromatherapy.`,
+      highlights: `Treatment Highlights | Plant-based AHA peel, facial massage, Odacite Nanoneedling infusion, LED light therapy with a peptide enhancement, and functional aromatherapy.`,
       packageNote: (
         <>
-          A package of three 'Remedy' facials is available.{' '}
-          <a
-            href="/packages"
-            className="text-brownDeep/70 hover:text-olive transition-colors duration-200 underline"
-          >
-            View here for details
-          </a>
-          .
+          A package of three 'Remedy' facials is available. View booking page for details.
         </>
       ),
     },
