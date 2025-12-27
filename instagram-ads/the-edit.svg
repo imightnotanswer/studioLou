@@ -1,0 +1,63 @@
+<svg width="1080" height="1080" viewBox="0 0 1080 1080" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      <![CDATA[
+      @import url('https://fonts.googleapis.com/css2?family=Figtree:wght@300;400;600&family=Bricolage+Grotesque:opsz,wght@12..96,300..800&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap');
+      .title { font-family: 'Playfair Display', serif; font-weight: 600; font-style: italic; }
+      .body { font-family: 'Figtree', sans-serif; font-weight: 300; }
+      ]]>>
+    </style>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="1080" height="1080" fill="#f4ecd3"/>
+  
+  <!-- Decorative spirals - olive green (organic placement) -->
+  <g opacity="0.15" stroke="#a1aa2e" fill="none" stroke-width="2" stroke-linecap="round">
+    <!-- Top left spiral -->
+    <g transform="translate(120, 150)">
+      <path d="M 50 50 m 0 -35 a 35 35 0 0 1 0 70 a 28 28 0 0 1 0 -56 a 21 21 0 0 1 0 42 a 14 14 0 0 1 0 -28 a 7 7 0 0 1 0 14" />
+    </g>
+    
+    <!-- Top right spiral -->
+    <g transform="translate(900, 120)">
+      <path d="M 50 50 m 0 -35 a 35 35 0 0 1 0 70 a 28 28 0 0 1 0 -56 a 21 21 0 0 1 0 42 a 14 14 0 0 1 0 -28" />
+    </g>
+    
+    <!-- Bottom left spiral -->
+    <g transform="translate(100, 900)">
+      <path d="M 50 50 m 0 -35 a 35 35 0 0 1 0 70 a 28 28 0 0 1 0 -56 a 21 21 0 0 1 0 42" />
+    </g>
+    
+    <!-- Middle right accent -->
+    <g transform="translate(850, 500) scale(0.6)">
+      <path d="M 50 50 m 0 -35 a 35 35 0 0 1 0 70 a 28 28 0 0 1 0 -56 a 21 21 0 0 1 0 42" />
+    </g>
+  </g>
+  
+  <!-- Main Content -->
+  <g transform="translate(540, 380)">
+    <!-- Title -->
+    <text x="0" y="0" text-anchor="middle" class="title" font-size="130" fill="#a1aa2e" font-weight="600" letter-spacing="1">
+      The Edit
+    </text>
+    
+    <!-- Duration -->
+    <text x="0" y="90" text-anchor="middle" class="body" font-size="26" fill="#440a09" opacity="0.75" font-weight="300" letter-spacing="0.5">
+      (60 or 90 minutes)
+    </text>
+    
+    <!-- Description -->
+    <text x="0" y="150" text-anchor="middle" class="body" font-size="24" fill="#440a09" font-weight="300" letter-spacing="0.2" opacity="0.85">
+      <tspan x="0" dy="0">Visible results meet deep relaxation in this</tspan>
+      <tspan x="0" dy="38">comprehensive treatment designed for every</tspan>
+      <tspan x="0" dy="38">complexion and concern. Whether you're seeking</tspan>
+      <tspan x="0" dy="38">deep hydration, barrier support, refined texture,</tspan>
+      <tspan x="0" dy="38">a brighter and more even tone, visible firming,</tspan>
+      <tspan x="0" dy="38">or care for reactive, inflamed skin conditions</tspan>
+      <tspan x="0" dy="38">like acne or rosacea, the Edit delivers.</tspan>
+      <tspan x="0" dy="38">Skin emerges hydrated, calm, radiant,</tspan>
+      <tspan x="0" dy="38">and deeply restored.</tspan>
+    </text>
+  </g>
+</svg>

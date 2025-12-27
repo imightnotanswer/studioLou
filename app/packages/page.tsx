@@ -10,13 +10,13 @@ const packages = [
     title: 'The Edit Package',
     description: 'A package of three 60-minute "The Edit" facials to establish consistency in caring for your skin and maximize your results.',
     benefits: 'Purchase of a package includes a complementary LED light therapy upgrade with each facial.',
-    link: 'https://square.link/u/edhBF7Ef',
+    link: 'https://square.link/u/XBVkt1t7',
   },
   {
     title: 'The Remedy Package',
     description: 'A package of three "Remedy" nanoneedling facials to accelerate your results and maintain optimal skin health.',
     benefits: 'Perfect for those seeking accelerated, visible results through consistent professional-grade nanoneedling treatments.',
-    link: 'https://square.link/u/jDGgOLbk',
+    link: 'https://square.link/u/XBVkt1t7',
   },
 ]
 

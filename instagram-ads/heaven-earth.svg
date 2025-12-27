@@ -1,0 +1,63 @@
+<svg width="1080" height="1080" viewBox="0 0 1080 1080" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      <![CDATA[
+      @import url('https://fonts.googleapis.com/css2?family=Figtree:wght@300;400;600&family=Bricolage+Grotesque:opsz,wght@12..96,300..800&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap');
+      .title { font-family: 'Playfair Display', serif; font-weight: 600; font-style: italic; }
+      .body { font-family: 'Figtree', sans-serif; font-weight: 300; }
+      ]]>>
+    </style>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="1080" height="1080" fill="#f4ecd3"/>
+  
+  <!-- Decorative spirals - soft blue (organic placement) -->
+  <g opacity="0.15" stroke="#9ab4c1" fill="none" stroke-width="2" stroke-linecap="round">
+    <!-- Top left spiral -->
+    <g transform="translate(120, 150)">
+      <path d="M 50 50 m 0 -35 a 35 35 0 0 1 0 70 a 28 28 0 0 1 0 -56 a 21 21 0 0 1 0 42 a 14 14 0 0 1 0 -28 a 7 7 0 0 1 0 14" />
+    </g>
+    
+    <!-- Top right spiral -->
+    <g transform="translate(900, 120)">
+      <path d="M 50 50 m 0 -35 a 35 35 0 0 1 0 70 a 28 28 0 0 1 0 -56 a 21 21 0 0 1 0 42 a 14 14 0 0 1 0 -28" />
+    </g>
+    
+    <!-- Bottom left spiral -->
+    <g transform="translate(100, 900)">
+      <path d="M 50 50 m 0 -35 a 35 35 0 0 1 0 70 a 28 28 0 0 1 0 -56 a 21 21 0 0 1 0 42" />
+    </g>
+    
+    <!-- Middle right accent -->
+    <g transform="translate(850, 500) scale(0.6)">
+      <path d="M 50 50 m 0 -35 a 35 35 0 0 1 0 70 a 28 28 0 0 1 0 -56 a 21 21 0 0 1 0 42" />
+    </g>
+  </g>
+  
+  <!-- Main Content -->
+  <g transform="translate(540, 380)">
+    <!-- Title -->
+    <text x="0" y="0" text-anchor="middle" class="title" font-size="130" fill="#9ab4c1" font-weight="600" letter-spacing="1">
+      Heaven + Earth
+    </text>
+    
+    <!-- Duration -->
+    <text x="0" y="90" text-anchor="middle" class="body" font-size="26" fill="#440a09" opacity="0.75" font-weight="300" letter-spacing="0.5">
+      (70 minutes)
+    </text>
+    
+    <!-- Description -->
+    <text x="0" y="150" text-anchor="middle" class="body" font-size="24" fill="#440a09" font-weight="300" letter-spacing="0.2" opacity="0.85">
+      <tspan x="0" dy="0">Where renewal meets release. This facial will</tspan>
+      <tspan x="0" dy="38">leave your skin and self feeling completely</tspan>
+      <tspan x="0" dy="38">uplifted, yet it's uniquely grounding. This facial</tspan>
+      <tspan x="0" dy="38">harnesses powerful plant-based skincare with</tspan>
+      <tspan x="0" dy="38">an extended focus on facial massage, including</tspan>
+      <tspan x="0" dy="38">sculptural techniques, manual lymphatic</tspan>
+      <tspan x="0" dy="38">drainage, and gentle cupping, all working in</tspan>
+      <tspan x="0" dy="38">harmony to de-puff, release deep tension,</tspan>
+      <tspan x="0" dy="38">and lift the skin with visible vitality.</tspan>
+    </text>
+  </g>
+</svg>
