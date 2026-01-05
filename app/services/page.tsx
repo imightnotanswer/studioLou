@@ -3,7 +3,7 @@ import { ServiceCard } from '@/components/ServiceCard'
 
 export const metadata = {
   title: 'Services | Greenpoint Facialist',
-  description: 'Explore our facial treatments: The Edit, Heaven + Earth, and The Remedy.',
+  description: 'Explore our facial treatments: The Edit, Heaven + Earth, The Remedy, and The Essentials.',
 }
 
 export default function ServicesPage() {
@@ -18,7 +18,7 @@ export default function ServicesPage() {
           duration: '60 minutes',
           description: (
             <>
-              <strong>60 minutes |</strong> This comprehensive hour-long facial is the foundation of 'The Edit.' Customized exfoliation, extractions (as needed), techniques that may include tension-relieving facial massage and manual lymphatic drainage, a customized mask treatment, and regenerative décolleté care are featured.
+              <strong>60 minutes |</strong> This comprehensive hour-long facial is the foundation of 'The Edit.'  A double cleanse, customized exfoliation, extractions as needed, techniques that may include tension-relieving facial massage and Dr. Vodder technique manual lymphatic drainage, a customized mask treatment, an Ionized oxygen infusion are featured, and regenerative décolleté care.
             </>
           ),
           whoFor: `This facial is ideal for skin showing signs of congestion, breakouts, dullness, dehydration, or uneven texture and tone. It's designed to deliver visible results and a sense of calm and renewal, whether your skin needs a fresh start or a regular dose of balance and vitality.`,
@@ -27,7 +27,7 @@ export default function ServicesPage() {
           duration: '90 minutes',
           description: (
             <>
-              <strong>90 minutes |</strong> With 30 additional minutes, two advanced treatments are included; an advanced mask treatment tailored to you along with LED light therapy with a peptide enhancement. LED therapy encourages cellular renewal and collagen production, kills the acne-causing c.acnes bacteria, brightens, and supports long-term skin vitality.
+              <strong>90 minutes |</strong> With 30 additional minutes, two advanced treatments are added and may included; a plant-based AHA peel, an upgraded clinical treatment mask, either an oxygenating treatment for dull, aging and acne-prone skin or a mineral-rich Alginate mask, or an extended LED light therapy session with a peptide enhancement. LED therapy encourages cellular renewal and collagen production, kills the acne-causing c.acnes bacteria, brightens, and supports long-term skin vitality.
             </>
           ),
           whoFor: `Anyone looking for an advanced, luxe facial that delivers both visible results and a restorative experience. Ideal for skin showing early signs of laxity, dullness, or fatigue, and for anyone looking to tame inflammatory skin conditions like acne, dermatitis, or rosacea with a combination of advanced clinical and botanical skincare.`,
@@ -43,9 +43,9 @@ export default function ServicesPage() {
       title: 'Heaven + Earth',
       duration: '70 minutes',
       description:
-        `Where renewal meets release. This facial will leave your skin and self feeling completely uplifted, yet it's uniquely grounding. This facial harnesses powerful plant-based skincare with an extended focus on facial massage, including sculptural techniques, manual lymphatic drainage, and gentle cupping, all working in harmony to de-puff, release deep tension, and lift the skin with visible vitality. Each element is designed to reset both skin and spirit: skin emerges divinely fresh, luminous, and nourished, while your whole being feels deeply restored when you come back earthside.`,
-      whoFor: `Who this is for | Designed for those who carry tension in the face or jaw, experience puffiness, or simply for skin that feels dull, dry, and depleted. Perfect for when skin is feeling lackluster, during high-stress seasons, or whenever your skin needs a revitalizing reset and your body a full exhale.`,
-      highlights: `Highlights | Ceremonial Matcha Cleanse, Bioactive Rose Gommage Peel, extended facial massage, MLD + cupping, LED light therapy with Sachi Skin peptide enhancement, and functional aromatherapy. This treatment does not include extractions.`,
+        `Where renewal meets release. This facial will leave your skin and self feeling completely uplifted, yet it's uniquely grounding. This facial harnesses powerful plant-based skincare with an extended focus on facial massage, including sculptural techniques, Dr.Vodder manual lymphatic drainage, and gentle cupping, all working in harmony to de-puff, release deep tension, and lift the skin with visible vitality. Each element is designed to reset both skin and spirit: skin emerges divinely fresh, luminous, and nourished, while your whole being feels deeply restored when you come back earthside.`,
+      whoFor: `Designed for those who carry tension in the face or jaw, experience puffiness, or simply for skin that feels dull, dry, and depleted. Perfect for when skin is feeling lackluster, during high-stress seasons, or whenever your skin needs a revitalizing reset and your body a full exhale.`,
+      highlights: `Treatment Highlights | Ceremonial Matcha Cleanse, Bioactive Rose Gommage Peel, extended facial massage, MLD + cupping, extended LED light therapy session with a peptide enhancement, Ionized oxygen infusion, and functional aromatherapy. This treatment does not include extractions. Option to add on a plant-based AHA peel.`,
     },
     {
       title: 'The Remedy',
@@ -63,12 +63,20 @@ export default function ServicesPage() {
         </>
       ),
       whoFor: `Designed for anyone seeking a non-invasive, professional-grade treatment that delivers both corrective results and restorative care. This treatment effectively addresses pigmentation, fine lines and wrinkles, uneven texture, dryness, congestion, and breakouts while supporting overall skin health and vitality. This is your go-to pre-event treatment; fresh, glowing skin without the downtime.`,
-      highlights: `Treatment Highlights | Plant-based AHA peel, facial massage, Odacite Nanoneedling infusion, LED light therapy with a peptide enhancement, and functional aromatherapy.`,
+      highlights: `Treatment Highlights | Plant-based AHA peel, facial massage, Odacite Nanoneedling infusion, extended LED light therapy session with a peptide enhancement, Ionized oxygen infusion, and functional aromatherapy.`,
       packageNote: (
         <>
           A package of three 'Remedy' facials is available. View booking page for details.
         </>
       ),
+    },
+    {
+      title: 'The Essentials',
+      duration: '45 minutes',
+      description:
+        `This 45-minute treatment delivers a thoughtful edit of the fundamentals - from a deep cleanse to restorative touch that leaves skin fresh and renewed. Designed for maintenance between regular facial treatments, The Essentials delivers exactly what your skin needs.`,
+      whoFor: `Clients looking to maintain results between treatments, who are short on time, or in need of a straightforward refresh.`,
+      highlights: `Treatment Highlights | Double cleanse, gentle customized exfoliation, extractions as needed, and an express LED session with a hydrating booster. Option to add on a plant-based AHA peel.`,
     },
   ]
 

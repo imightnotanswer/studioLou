@@ -39,25 +39,24 @@
   <g transform="translate(540, 360)">
     <!-- Title -->
     <text x="0" y="100" text-anchor="middle" class="title" font-size="120" fill="#9ab4c1" font-weight="800" letter-spacing="-2">
-      Heaven + Earth
+      The Essentials
     </text>
     
     <!-- Duration -->
     <text x="0" y="180" text-anchor="middle" class="body" font-size="28" fill="#440a09" font-weight="300" letter-spacing="0.5">
-      (70 minutes)
+      (45 minutes)
     </text>
     
     <!-- Description -->
     <text x="0" y="240" text-anchor="middle" class="body" font-size="26" fill="#440a09" font-weight="300" letter-spacing="0.2">
-      <tspan x="0" dy="0">Where renewal meets release. This facial will</tspan>
-      <tspan x="0" dy="36">leave your skin and self feeling completely</tspan>
-      <tspan x="0" dy="36">uplifted, yet it's uniquely grounding. This facial</tspan>
-      <tspan x="0" dy="36">harnesses powerful plant-based skincare with</tspan>
-      <tspan x="0" dy="36">an extended focus on facial massage, including</tspan>
-      <tspan x="0" dy="36">sculptural techniques, manual lymphatic</tspan>
-      <tspan x="0" dy="36">drainage, and gentle cupping, all working in</tspan>
-      <tspan x="0" dy="36">harmony to de-puff, release deep tension,</tspan>
-      <tspan x="0" dy="36">and lift the skin with visible vitality.</tspan>
+      <tspan x="0" dy="0">An express treatment that delivers a thoughtful</tspan>
+      <tspan x="0" dy="36">edit of the fundamentals - from a deep cleanse</tspan>
+      <tspan x="0" dy="36">to restorative touch that leaves skin fresh and</tspan>
+      <tspan x="0" dy="36">renewed. Designed for maintenance between</tspan>
+      <tspan x="0" dy="36">regular facial treatments, The Essentials</tspan>
+      <tspan x="0" dy="36">delivers exactly what your skin needs.</tspan>
+      <tspan x="0" dy="36">*Option to add on a plant-based AHA peel.</tspan>
     </text>
   </g>
 </svg>
+

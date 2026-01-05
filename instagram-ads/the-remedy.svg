@@ -2,18 +2,18 @@
   <defs>
     <style>
       <![CDATA[
-      @import url('https://fonts.googleapis.com/css2?family=Figtree:wght@300;400;600&family=Bricolage+Grotesque:opsz,wght@12..96,300..800&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap');
-      .title { font-family: 'Playfair Display', serif; font-weight: 600; font-style: italic; }
+      @import url('https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,200..800&family=Figtree:wght@300;400;600&display=swap');
+      .title { font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; }
       .body { font-family: 'Figtree', sans-serif; font-weight: 300; }
-      ]]>>
+      ]]>
     </style>
   </defs>
   
   <!-- Background -->
   <rect width="1080" height="1080" fill="#f4ecd3"/>
   
-  <!-- Decorative spirals - burnt orange (organic placement) -->
-  <g opacity="0.15" stroke="#b72b0f" fill="none" stroke-width="2" stroke-linecap="round">
+  <!-- Decorative spirals - soft blue (organic placement) -->
+  <g opacity="0.25" stroke="#9ab4c1" fill="none" stroke-width="2.5" stroke-linecap="round">
     <!-- Top left spiral -->
     <g transform="translate(120, 150)">
       <path d="M 50 50 m 0 -35 a 35 35 0 0 1 0 70 a 28 28 0 0 1 0 -56 a 21 21 0 0 1 0 42 a 14 14 0 0 1 0 -28 a 7 7 0 0 1 0 14" />
@@ -36,28 +36,28 @@
   </g>
   
   <!-- Main Content -->
-  <g transform="translate(540, 380)">
+  <g transform="translate(540, 360)">
     <!-- Title -->
-    <text x="0" y="0" text-anchor="middle" class="title" font-size="130" fill="#b72b0f" font-weight="600" letter-spacing="1">
+    <text x="0" y="100" text-anchor="middle" class="title" font-size="120" fill="#9ab4c1" font-weight="800" letter-spacing="-2">
       The Remedy
     </text>
     
     <!-- Duration -->
-    <text x="0" y="90" text-anchor="middle" class="body" font-size="26" fill="#440a09" opacity="0.75" font-weight="300" letter-spacing="0.5">
+    <text x="0" y="180" text-anchor="middle" class="body" font-size="28" fill="#440a09" font-weight="300" letter-spacing="0.5">
       (70 minutes)
     </text>
     
     <!-- Description -->
-    <text x="0" y="150" text-anchor="middle" class="body" font-size="24" fill="#440a09" font-weight="300" letter-spacing="0.2" opacity="0.85">
+    <text x="0" y="240" text-anchor="middle" class="body" font-size="26" fill="#440a09" font-weight="300" letter-spacing="0.2">
       <tspan x="0" dy="0">This treatment is a corrective reset for skin</tspan>
-      <tspan x="0" dy="38">in need of visible results. Clinical results meet</tspan>
-      <tspan x="0" dy="38">holistic skincare with this non-invasive,</tspan>
-      <tspan x="0" dy="38">professional-grade treatment to accelerate</tspan>
-      <tspan x="0" dy="38">skin renewal. Odacite's Nano-infusion</tspan>
-      <tspan x="0" dy="38">Nanoneedling gently opens thousands of</tspan>
-      <tspan x="0" dy="38">microchannels in the skin to deliver potent</tspan>
-      <tspan x="0" dy="38">actives more deeply and effectively,</tspan>
-      <tspan x="0" dy="38">fast-tracking results without the downtime.</tspan>
+      <tspan x="0" dy="36">in need of visible results. Clinical results meet</tspan>
+      <tspan x="0" dy="36">holistic skincare with this non-invasive,</tspan>
+      <tspan x="0" dy="36">professional-grade treatment to accelerate</tspan>
+      <tspan x="0" dy="36">skin renewal. Odacite's Nano-infusion</tspan>
+      <tspan x="0" dy="36">Nanoneedling gently opens thousands of</tspan>
+      <tspan x="0" dy="36">microchannels in the skin to deliver potent</tspan>
+      <tspan x="0" dy="36">actives more deeply and effectively,</tspan>
+      <tspan x="0" dy="36">fast-tracking results without the downtime.</tspan>
     </text>
   </g>
 </svg>
