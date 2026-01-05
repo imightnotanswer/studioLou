@@ -83,7 +83,9 @@ async function main() {
     const svgFiles = [
         'the-edit.svg',
         'heaven-earth.svg',
-        'the-remedy.svg'
+        'the-remedy.svg',
+        'the-essentials.svg',
+        'facial-services-cover.svg'
     ];
 
     console.log('Converting SVG files to PNG...\n');

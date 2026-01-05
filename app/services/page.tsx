@@ -18,7 +18,7 @@ export default function ServicesPage() {
           duration: '60 minutes',
           description: (
             <>
-              <strong>60 minutes |</strong> This comprehensive hour-long facial is the foundation of 'The Edit.'  A double cleanse, customized exfoliation, extractions as needed, techniques that may include tension-relieving facial massage and Dr. Vodder technique manual lymphatic drainage, a customized mask treatment, an Ionized oxygen infusion are featured, and regenerative décolleté care.
+              <strong>60 minutes |</strong> This comprehensive hour-long facial is the foundation of 'The Edit.'  A double cleanse, customized exfoliation, extractions as needed, techniques that may include tension-relieving facial massage and Dr. Vodder technique manual lymphatic drainage, a customized mask treatment, an Ionized oxygen infusion, and regenerative décolleté care are featured.
             </>
           ),
           whoFor: `This facial is ideal for skin showing signs of congestion, breakouts, dullness, dehydration, or uneven texture and tone. It's designed to deliver visible results and a sense of calm and renewal, whether your skin needs a fresh start or a regular dose of balance and vitality.`,
@@ -27,7 +27,7 @@ export default function ServicesPage() {
           duration: '90 minutes',
           description: (
             <>
-              <strong>90 minutes |</strong> With 30 additional minutes, two advanced treatments are added and may included; a plant-based AHA peel, an upgraded clinical treatment mask, either an oxygenating treatment for dull, aging and acne-prone skin or a mineral-rich Alginate mask, or an extended LED light therapy session with a peptide enhancement. LED therapy encourages cellular renewal and collagen production, kills the acne-causing c.acnes bacteria, brightens, and supports long-term skin vitality.
+              <strong>90 minutes |</strong> With 30 additional minutes, two advanced treatments are added and may include; a plant-based AHA peel, an upgraded clinical treatment mask, either an oxygenating treatment for dull, aging and acne-prone skin or a mineral-rich Alginate mask, or an extended LED light therapy session with a peptide enhancement. LED therapy encourages cellular renewal and collagen production, kills the acne-causing c.acnes bacteria, brightens, and supports long-term skin vitality.
             </>
           ),
           whoFor: `Anyone looking for an advanced, luxe facial that delivers both visible results and a restorative experience. Ideal for skin showing early signs of laxity, dullness, or fatigue, and for anyone looking to tame inflammatory skin conditions like acne, dermatitis, or rosacea with a combination of advanced clinical and botanical skincare.`,
