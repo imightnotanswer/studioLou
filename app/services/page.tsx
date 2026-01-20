@@ -27,7 +27,7 @@ export default function ServicesPage() {
           duration: '90 minutes',
           description: (
             <>
-              <strong>90 minutes |</strong> With 30 additional minutes, two advanced treatments are added and may include; a plant-based AHA peel, an upgraded clinical treatment mask, either an oxygenating treatment for dull, aging and acne-prone skin or a mineral-rich Alginate mask, or an extended LED light therapy session with a peptide enhancement. LED therapy encourages cellular renewal and collagen production, kills the acne-causing c.acnes bacteria, brightens, and supports long-term skin vitality.
+              <strong>90 minutes |</strong> With 30 additional minutes, two advanced treatments are added and may include any of the following; a plant-based AHA peel, lifting and toning microcurrent, and an extended LED light therapy session with a peptide enhancement.
             </>
           ),
           whoFor: `Anyone looking for an advanced, luxe facial that delivers both visible results and a restorative experience. Ideal for skin showing early signs of laxity, dullness, or fatigue, and for anyone looking to tame inflammatory skin conditions like acne, dermatitis, or rosacea with a combination of advanced clinical and botanical skincare.`,
