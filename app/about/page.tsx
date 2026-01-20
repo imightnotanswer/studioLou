@@ -1,8 +1,11 @@
+import Image from 'next/image'
 import NeighborhoodGuide from '@/components/NeighborhoodGuide'
+import headshot from '@/app/assets/headshot.jpg'
 
 export const metadata = {
   title: 'About | Greenpoint Facialist',
-  description: 'Learn about Greenpoint Facialist and Ashley Guttuso, New York State Licensed Aesthetician.',
+  description:
+    'Learn about Greenpoint Facialist and Ashley Guttuso, New York State Licensed Aesthetician.',
 }
 
 const neighborhoodSpots = [
@@ -43,7 +46,7 @@ const neighborhoodSpots = [
     lng: -73.9503257,
   },
   {
-    name: 'Achilles\' Heel',
+    name: "Achilles' Heel",
     address: '180 West St, Brooklyn, NY 11222',
     lat: 40.7331765,
     lng: -73.9596929,
@@ -71,43 +74,87 @@ const neighborhoodSpots = [
 export default function AboutPage() {
   return (
     <div className="bg-cream min-h-screen py-12 md:py-16 lg:py-20">
-      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center md:text-left">
-        <section className="space-y-10 md:space-y-12">
-          <header className="space-y-4 md:space-y-6">
+      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+        <section className="space-y-12">
+          {/* Intro */}
+          <header className="space-y-6 text-center md:text-left">
             <h1 className="font-heading text-3xl md:text-4xl lg:text-5xl font-bold text-blueSoft tracking-tighter">
               Treatments tailored to your skin’s every mood
             </h1>
             <p className="text-brownDeep leading-relaxed max-w-3xl mx-auto md:mx-0">
-              Greenpoint Facialist was born from a love of skincare and connection. This is the place for completely customized facials, with every facial treatment centering around skin health and visible results. When your skin is supported and understood, radiance, clarity, and calmness follow. Treatments feature nutrient-rich, botanical skincare that is thoughtfully paired with select clinical formulas and technology for your best skin yet. Every facial can be tailored for pregnancy or sensitivities.
+              Greenpoint Facialist was born from a love of skincare and
+              connection. This is the place for completely customized facials,
+              with every facial treatment centering around skin health and
+              visible results. When your skin is supported and understood,
+              radiance, clarity, and calmness follow. Treatments feature
+              nutrient-rich, botanical skincare that is thoughtfully paired with
+              select clinical formulas and technology for your best skin yet.
+              Every facial can be tailored for pregnancy or sensitivities.
             </p>
           </header>
 
-          <section className="border-t border-brownDeep pt-10 md:pt-12 space-y-6 text-center md:text-left">
-            <div>
-              <h2 className="font-heading text-2xl md:text-3xl font-bold text-brownDeep">
-                The Aesthetician
-              </h2>
-              <p className="text-brownDeep/80 text-sm md:text-base font-medium mt-2">
-                Ashley Guttuso, New York State licensed aesthetician
-              </p>
-            </div>
-            <div className="text-brownDeep leading-relaxed max-w-3xl space-y-4">
-              <p>
-                In 2018, I traded the energy of New York for the quiet of the desert and immersed myself in a small, holistically-focused aesthetics school in Tucson, Arizona. My foundation in organic skincare, intuitive touch, and whole-body wellness is supported by my advanced training in Gua Sha Facial Fusion with Cecily Braden and the Vodder Method of Manual Lymphatic Drainage with Anne Brahman through ASTECC.
-              </p>
-              <p>
-                My experience spans from fast-paced Upper West Side and West Village spas to the intimacy of a boutique facial studio. I'm a firm believer in trusting our skin's natural intelligence, and pairing the very best botanical skincare with clinical care for advanced results. With a focus on intentional, restorative touch, my hands are my most essential tool - a means to communicate calm, lift tension, and invite the nervous system into balance.
-              </p>
+          {/* Aesthetician */}
+          <section className="border-t border-brownDeep pt-10 md:pt-12">
+            <div className="grid grid-cols-1 md:grid-cols-[200px_1fr] gap-8 items-start">
+              <div className="flex justify-center md:justify-start">
+                <Image
+                  src={headshot}
+                  alt="Ashley Guttuso, New York State licensed aesthetician"
+                  width={200}
+                  height={200}
+                  priority
+                  className="rounded-full object-cover border border-brownDeep"
+                />
+              </div>
+
+              <div className="space-y-6 text-center md:text-left">
+                <div>
+                  <h2 className="font-heading text-2xl md:text-3xl font-bold text-brownDeep">
+                    The Aesthetician
+                  </h2>
+                  <p className="text-brownDeep/80 text-sm md:text-base font-medium mt-2">
+                    Ashley Guttuso, New York State licensed aesthetician
+                  </p>
+                </div>
+
+                <div className="text-brownDeep leading-relaxed space-y-4 max-w-3xl">
+                  <p>
+                    In 2018, I traded the energy of New York for the quiet of the
+                    desert and immersed myself in a small, holistically-focused
+                    aesthetics school in Tucson, Arizona. My foundation in
+                    organic skincare, intuitive touch, and whole-body wellness
+                    is supported by my advanced training in Gua Sha Facial
+                    Fusion with Cecily Braden and the Vodder Method of Manual
+                    Lymphatic Drainage with Anne Brahman through ASTECC.
+                  </p>
+                  <p>
+                    My experience spans from fast-paced Upper West Side and West
+                    Village spas to the intimacy of a boutique facial studio.
+                    I'm a firm believer in trusting our skin's natural
+                    intelligence, and pairing the very best botanical skincare
+                    with clinical care for advanced results. With a focus on
+                    intentional, restorative touch, my hands are my most
+                    essential tool - a means to communicate calm, lift tension,
+                    and invite the nervous system into balance.
+                  </p>
+                </div>
+              </div>
             </div>
           </section>
 
+          {/* Neighborhood guide */}
           <section className="space-y-6 pt-10 border-t border-brownDeep">
             <h2 className="font-heading text-lg sm:text-xl md:text-3xl font-bold text-brownDeep text-center md:text-left leading-tight">
-              <span className="block md:inline whitespace-nowrap">A Greenpoint Facialist</span>{' '}
-              <span className="block md:inline whitespace-nowrap">guide to the neighborhood</span>
+              <span className="block md:inline whitespace-nowrap">
+                A Greenpoint Facialist
+              </span>{' '}
+              <span className="block md:inline whitespace-nowrap">
+                guide to the neighborhood
+              </span>
             </h2>
             <p className="text-brownDeep/80 text-sm md:text-base leading-relaxed max-w-2xl mx-auto md:mx-0">
-              Some of my favorite places as a Greenpoint local – perfect for setting the mood before or after your facial.
+              Some of my favorite places as a Greenpoint local – perfect for
+              setting the mood before or after your facial.
             </p>
             <NeighborhoodGuide spots={neighborhoodSpots} />
           </section>
