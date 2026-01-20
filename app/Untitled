@@ -1,0 +1,48 @@
+'use client'
+
+import Image from 'next/image'
+import { Button } from '@/components/Button'
+import WaterRippleBackground from '@/components/WaterRippleBackground'
+import { openSquareBooking } from '@/components/SquareBookingWidget'
+import blackandwhite from '@/app/assets/blackandwhite.jpg'
+
+export default function HomePage() {
+  return (
+    <div className="relative min-h-screen w-full overflow-hidden bg-black">
+      {/* Background photo */}
+      <Image
+        src={blackandwhite}
+        alt="Greenpoint Facialist black and white background"
+        fill
+        priority
+        className="object-cover"
+      />
+
+      {/* Optional: subtle overlay for legibility */}
+      <div className="absolute inset-0 bg-black/20" />
+
+      {/* Ripple effect over the photo */}
+      <WaterRippleBackground />
+
+      {/* Corner logo + button */}
+      <div className="absolute inset-0 z-10">
+        <div className="p-5 sm:p-8">
+          <h1 className="font-heading text-blueSoft uppercase font-bold tracking-tight leading-tight text-lg sm:text-2xl md:text-3xl select-none">
+            Greenpoint
+            <br />
+            Facialist
+          </h1>
+        </div>
+
+        <div className="absolute left-0 bottom-0 p-5 sm:p-8">
+          <Button
+            onClick={openSquareBooking}
+            className="bg-blueSoft text-cream text-xs md:text-base py-2 px-4 md:py-3 md:px-6 hover:bg-greenpoint transition-colors duration-200"
+          >
+            BOOK A FACIAL
+          </Button>
+        </div>
+      </div>
+    </div>
+  )
+}
