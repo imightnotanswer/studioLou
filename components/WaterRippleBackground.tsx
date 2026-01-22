@@ -295,8 +295,32 @@ export default function WaterRippleBackground({
       mouse.set(0, 0)
     }
 
+    const onTouchMove = (e: TouchEvent) => {
+      // Prevent scrolling when dragging on mobile
+      e.preventDefault()
+      const touch = e.touches[0]
+      if (touch) {
+        const rect = container.getBoundingClientRect()
+        const dpr = Math.min(window.devicePixelRatio || 1, 2)
+
+        const localX = touch.clientX - rect.left
+        const localY = touch.clientY - rect.top
+
+        mouse.x = localX * dpr
+        mouse.y = (rect.height - localY) * dpr
+      }
+    }
+
+    const onTouchEnd = () => {
+      mouse.set(0, 0)
+    }
+
     container.addEventListener('pointermove', onPointerMove, { passive: true })
     container.addEventListener('pointerleave', onPointerLeave, { passive: true })
+    // Add touch events for better mobile support
+    container.addEventListener('touchmove', onTouchMove, { passive: false })
+    container.addEventListener('touchend', onTouchEnd, { passive: true })
+    container.addEventListener('touchcancel', onTouchEnd, { passive: true })
 
     const animate = () => {
       simMaterial.uniforms.frame.value = frame++
@@ -324,6 +348,9 @@ export default function WaterRippleBackground({
 
       container.removeEventListener('pointermove', onPointerMove)
       container.removeEventListener('pointerleave', onPointerLeave)
+      container.removeEventListener('touchmove', onTouchMove)
+      container.removeEventListener('touchend', onTouchEnd)
+      container.removeEventListener('touchcancel', onTouchEnd)
 
       ro.disconnect()
 
@@ -351,6 +378,7 @@ export default function WaterRippleBackground({
         overflow: 'hidden',
         borderRadius: 0,
         pointerEvents: 'auto',
+        touchAction: 'none', // Prevent default touch behaviors like scrolling
       }}
     />
   )
