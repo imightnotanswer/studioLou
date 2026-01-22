@@ -31,9 +31,9 @@ export default function ContactPage() {
         </div>
 
         {/* Balanced 3-column layout */}
-        <div className="grid gap-12 lg:grid-cols-[1.2fr_1fr_1.2fr] items-center">
+        <div className="grid items-center gap-12 lg:grid-cols-3 lg:gap-16">
           {/* Left: Studio image */}
-          <div className="flex justify-center lg:justify-start">
+          <div className="flex justify-center">
             <div className="w-full max-w-[360px]">
               <div className="rounded-full border border-brownDeep/40 p-[4px]">
                 <div className="relative h-[480px] rounded-full overflow-hidden bg-cream p-2">
@@ -43,15 +43,16 @@ export default function ContactPage() {
                     fill
                     className="object-cover"
                     sizes="360px"
+                    priority
                   />
                 </div>
               </div>
             </div>
           </div>
 
-          {/* Middle: Text (true center) */}
+          {/* Middle: Text */}
           <div className="flex justify-center">
-            <div className="max-w-sm text-center md:text-left space-y-14">
+            <div className="w-full max-w-[360px] text-center md:text-left space-y-14">
               <div>
                 <h2 className="font-heading text-2xl md:text-3xl font-bold text-brownDeep mb-4">
                   Location
@@ -94,9 +95,9 @@ export default function ContactPage() {
           </div>
 
           {/* Right: Map */}
-          <div className="flex justify-center lg:justify-end lg:mt-10">
+          <div className="flex justify-center lg:mt-16 xl:mt-20">
             <div className="w-full max-w-[360px]">
-              <div className="relative h-[320px] rounded-[2rem] overflow-hidden">
+              <div className="relative h-[480px] rounded-[2rem] overflow-hidden">
                 <NeighborhoodMap spots={heldspaceSpot} enableMarkerLinks />
               </div>
             </div>
@@ -106,6 +107,8 @@ export default function ContactPage() {
     </div>
   )
 }
+
+
 
 
 
