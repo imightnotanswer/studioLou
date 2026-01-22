@@ -94,9 +94,9 @@ export default function ContactPage() {
           </div>
 
           {/* Right: Map */}
-          <div className="flex justify-center lg:justify-end">
+          <div className="flex justify-center lg:justify-end lg:mt-10">
             <div className="w-full max-w-[360px]">
-              <div className="relative h-[480px] rounded-[2rem] overflow-hidden">
+              <div className="relative h-[320px] rounded-[2rem] overflow-hidden">
                 <NeighborhoodMap spots={heldspaceSpot} enableMarkerLinks />
               </div>
             </div>
@@ -106,6 +106,7 @@ export default function ContactPage() {
     </div>
   )
 }
+
 
 
 

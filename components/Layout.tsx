@@ -9,17 +9,19 @@ export function Layout({ children }: { children: React.ReactNode }) {
   return (
     <div
       className="
-        min-h-[100dvh]               /* dynamic viewport height (iOS/Android safe) */
-        grid grid-rows-[auto_1fr_auto]  /* header | main (fills) | footer */
+        min-h-[100dvh]
+        grid grid-rows-[auto_1fr_auto]
         bg-cream text-brownDeep
         w-full
+        overflow-hidden
       "
     >
       <Header />
-      <main className="min-w-0 w-full">{children}</main>
+      <main className="min-w-0 w-full h-full overflow-hidden">{children}</main>
       <Footer />
       <EmailPopup />
       <SquareBookingModal />
     </div>
   )
 }
+
