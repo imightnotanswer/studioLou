@@ -40,22 +40,22 @@ const neighborhoodSpots = [
     lng: -73.9548547,
   },
   {
+    name: 'Leaves Bookstore',
+    address: '140 Nassau Ave, Brooklyn, NY 11222',
+    lat: 40.7246322,
+    lng: -73.9477183,
+  },
+  {
+    name: 'Falansai',
+    address: '120 Norman Ave, Brooklyn, NY 11222',
+    lat: 40.725859,
+    lng: -73.9498179,
+  },
+  {
     name: 'Mirth Vintage',
     address: '606 Manhattan Ave, Brooklyn, NY 11222',
     lat: 40.7233457,
     lng: -73.9503257,
-  },
-  {
-    name: "Achilles' Heel",
-    address: '180 West St, Brooklyn, NY 11222',
-    lat: 40.7331765,
-    lng: -73.9596929,
-  },
-  {
-    name: 'Archestratus',
-    address: '164 Huron St, Brooklyn, NY 11222',
-    lat: 40.7325,
-    lng: -73.9585,
   },
   {
     name: 'For the Record',

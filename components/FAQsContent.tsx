@@ -145,20 +145,15 @@ const faqs: FAQItem[] = [
     question: 'Do you offer packages?',
     answer: (
       <p>
-        Packages are available to establish consistency in caring for your skin and to maximize your results.
-        <br /><br />
-        A package of three 60-minute 'The Edit' facials includes a complementary LED light therapy upgrade with each facial.
-        <br /><br />
-        A package of three Remedy nanoneedling facials is also available to accelerate your results.
-        <br /><br />
-        See the package page{' '}
+        Yes! Customized packages are created for individual clients based upon goals, budget, and overall needs. Purchasing a
+        package offers a small savings on each individual service. Please email{' '}
         <a
-          href="/packages"
-          className="text-brownDeep/70 hover:text-olive transition-colors duration-200 underline"
+          href="mailto:hello@greenpointfacialist.com"
+          className="text-brownDeep/70 hover:text-olive transition-colors duration-200"
         >
-          here
-        </a>
-        .
+          hello@greenpointfacialist.com
+        </a>{' '}
+        to learn more.
       </p>
     ),
   },
