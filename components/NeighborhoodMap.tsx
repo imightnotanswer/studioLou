@@ -27,7 +27,10 @@ interface NeighborhoodMapProps {
   onSpotSelect?: (spotName: string | null) => void
 }
 
-const TILE_URL = 'https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png'
+const TILE_URL =
+  'https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Light_Gray_Base/MapServer/tile/{z}/{y}/{x}'
+const TILE_LABELS_URL =
+  'https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Light_Gray_Reference/MapServer/tile/{z}/{y}/{x}'
 const TILE_ATTRIBUTION = ''
 
 type LeafletModule = typeof import('leaflet')
@@ -451,7 +454,8 @@ export function NeighborhoodMap({
         attributionControl={false}
       >
         <MapInteractionHandler />
-        <TileLayer attribution={TILE_ATTRIBUTION} url={TILE_URL} />
+        <TileLayer attribution={TILE_ATTRIBUTION} url={TILE_URL} maxZoom={16} />
+        <TileLayer url={TILE_LABELS_URL} maxZoom={16} pane="overlayPane" />
         {spotsWithIcons.map((spot) => {
           const isSelected = selectedSpotName === spot.name
           const isHovered = !isSelected && activeSpotName === spot.name
