@@ -454,8 +454,8 @@ export function NeighborhoodMap({
         attributionControl={false}
       >
         <MapInteractionHandler />
-        <TileLayer attribution={TILE_ATTRIBUTION} url={TILE_URL} maxZoom={16} />
-        <TileLayer url={TILE_LABELS_URL} maxZoom={16} pane="overlayPane" />
+        <TileLayer attribution={TILE_ATTRIBUTION} url={TILE_URL} maxZoom={16} zIndex={1} />
+        <TileLayer url={TILE_LABELS_URL} maxZoom={16} zIndex={2} />
         {spotsWithIcons.map((spot) => {
           const isSelected = selectedSpotName === spot.name
           const isHovered = !isSelected && activeSpotName === spot.name
