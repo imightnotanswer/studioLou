@@ -43,6 +43,25 @@ const faqs: FAQItem[] = [
     ),
   },
   {
+    question: 'What is your rescheduling policy?',
+    answer: (
+      <p>
+        Appointments may be rescheduled up to two times, with at least 24 hours&apos; notice. Appointments cannot be
+        rescheduled within 24 hours of the start time, and changes requested inside that window will be treated as a
+        cancellation with the deposit forfeited. Any additional reschedule beyond two will also be treated as a
+        cancellation. Because my schedule is limited, I&apos;m unable to hold appointment times indefinitely. If an
+        emergency comes up, please email{' '}
+        <a
+          href="mailto:hello@greenpointfacialist.com"
+          className="text-brownDeep/70 hover:text-olive transition-colors duration-200"
+        >
+          hello@greenpointfacialist.com
+        </a>{' '}
+        and I will do my best to work with you.
+      </p>
+    ),
+  },
+  {
     question: 'How can I pay for my service?',
     answer: (
       <p>
