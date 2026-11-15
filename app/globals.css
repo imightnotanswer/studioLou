@@ -98,6 +98,48 @@
       transform: translateY(0);
     }
   }
+
+  /* Heaven + Earth relaunch notice: brand-blue panel, periodic light sweep, pulsing beacon dot */
+  .notice-sheen::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    width: 40%;
+    background: linear-gradient(100deg, transparent 0%, rgba(255, 255, 255, 0.45) 50%, transparent 100%);
+    transform: translateX(-120%) skewX(-20deg);
+    animation: noticeSheen 5s ease-in-out infinite;
+    pointer-events: none;
+  }
+
+  .notice-beacon {
+    width: 0.65rem;
+    height: 0.65rem;
+    border-radius: 9999px;
+    background: #f4ecd3;
+  }
+
+  .notice-beacon::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 9999px;
+    border: 2px solid #f4ecd3;
+    animation: noticePulse 2s ease-out infinite;
+  }
+
+  @keyframes noticeSheen {
+    0% { transform: translateX(-120%) skewX(-20deg); }
+    45%, 100% { transform: translateX(320%) skewX(-20deg); }
+  }
+
+  @keyframes noticePulse {
+    0% { transform: scale(1); opacity: 0.9; }
+    100% { transform: scale(2.8); opacity: 0; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .notice-sheen::before, .notice-beacon::after { animation: none; display: none; }
+  }
 }
 
 @layer base {

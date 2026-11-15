@@ -5,6 +5,7 @@ import { usePathname } from 'next/navigation'
 import { useState, useEffect, useRef } from 'react'
 import { Button } from '@/components/Button'
 import { openSquareBooking } from '@/components/SquareBookingWidget'
+import { SQUARE_GIFT_CARDS_URL, SQUARE_PACKAGES_URL } from '@/lib/siteLinks'
 
 export function Header() {
   const pathname = usePathname()
@@ -43,21 +44,19 @@ export function Header() {
     }
   }, [isMobileMenuOpen])
 
-  const navLinks = [
+  const navLinks: { href: string; label: string; external?: boolean }[] = [
     { href: '/', label: 'HOME' },
-    { href: '/services', label: 'SERVICES' },
+    { href: '/facials', label: 'FACIALS' },
+    { href: SQUARE_PACKAGES_URL, label: 'PACKAGES', external: true },
     { href: '/about', label: 'ABOUT' },
-    { href: '/faqs', label: 'FAQs' },
     { href: '/contact', label: 'CONTACT' },
+    { href: SQUARE_GIFT_CARDS_URL, label: 'GIFT CARDS', external: true },
   ]
 
   const isActive = (href: string) => {
-    if (href === '/' && pathname === '/') return true
-    if (href === '/faqs' && pathname === '/faqs') return true
-    if (href === '/services' && pathname === '/services') return true
-    if (href === '/about' && pathname === '/about') return true
-    if (href === '/contact' && pathname === '/contact') return true
-    return false
+    if (href.startsWith('http')) return false
+    if (href === '/') return pathname === '/'
+    return pathname === href
   }
 
   return (
@@ -79,19 +78,33 @@ export function Header() {
           </div>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex gap-8 absolute left-1/2 -translate-x-1/2">
-            {navLinks.map((link) => (
-              <Link
-                key={link.href}
-                href={link.href}
-                className={`text-base font-accent uppercase tracking-wide transition-colors duration-200 ${isActive(link.href)
-                  ? 'text-olive border-b-2 border-olive'
-                  : 'text-brownDeep hover:text-olive'
-                  }`}
-              >
-                {link.label}
-              </Link>
-            ))}
+          <div className="hidden md:flex gap-4 lg:gap-7 absolute left-1/2 -translate-x-1/2">
+            {navLinks.map((link) => {
+              const className = `text-sm lg:text-base font-accent uppercase tracking-wide transition-colors duration-200 whitespace-nowrap ${isActive(link.href)
+                ? 'text-olive border-b-2 border-olive'
+                : 'text-brownDeep hover:text-olive'
+                }`
+
+              if (link.external) {
+                return (
+                  <a
+                    key={link.href}
+                    href={link.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={className}
+                  >
+                    {link.label}
+                  </a>
+                )
+              }
+
+              return (
+                <Link key={link.href} href={link.href} className={className}>
+                  {link.label}
+                </Link>
+              )
+            })}
           </div>
 
           {/* Mobile Navigation */}
@@ -125,28 +138,43 @@ export function Header() {
             {/* Mobile Menu Dropdown */}
             <div
               className={`absolute top-full left-0 right-0 bg-cream shadow-lg border-t border-brownDeep/10 overflow-hidden transition-all duration-300 ease-out ${isMobileMenuOpen
-                ? 'max-h-96 opacity-100'
+                ? 'max-h-[28rem] opacity-100'
                 : 'max-h-0 opacity-0'
                 }`}
             >
               <div className="py-4">
-                {navLinks.map((link, index) => (
-                  <Link
-                    key={link.href}
-                    href={link.href}
-                    className={`block px-6 py-3 text-sm font-accent uppercase tracking-wide transition-all duration-300 ${isActive(link.href)
-                      ? 'text-olive bg-cream/50 border-l-4 border-olive'
-                      : 'text-brownDeep hover:text-olive hover:bg-cream/30'
-                      }`}
-                    style={{
-                      animation: isMobileMenuOpen
-                        ? `slideIn 0.4s ease-out ${index * 0.05}s both`
-                        : 'none',
-                    }}
-                  >
-                    {link.label}
-                  </Link>
-                ))}
+                {navLinks.map((link, index) => {
+                  const className = `block px-6 py-3 text-sm font-accent uppercase tracking-wide transition-all duration-300 ${isActive(link.href)
+                    ? 'text-olive bg-cream/50 border-l-4 border-olive'
+                    : 'text-brownDeep hover:text-olive hover:bg-cream/30'
+                    }`
+                  const style = {
+                    animation: isMobileMenuOpen
+                      ? `slideIn 0.4s ease-out ${index * 0.05}s both`
+                      : 'none',
+                  }
+
+                  if (link.external) {
+                    return (
+                      <a
+                        key={link.href}
+                        href={link.href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className={className}
+                        style={style}
+                      >
+                        {link.label}
+                      </a>
+                    )
+                  }
+
+                  return (
+                    <Link key={link.href} href={link.href} className={className} style={style}>
+                      {link.label}
+                    </Link>
+                  )
+                })}
               </div>
             </div>
           </div>

@@ -9,14 +9,19 @@ interface DurationOption {
 }
 
 interface ServiceCardProps {
+  id?: string
   title: string
   duration: string
+  tagline?: string
+  subnote?: React.ReactNode
   description: string | React.ReactNode
   whoFor?: string | string[]
-  features?: (string | React.ReactNode)[]
+  features?: string
   highlights?: string | React.ReactNode
   durationOptions?: DurationOption[]
   packageNote?: string | React.ReactNode
+  notice?: React.ReactNode
+  featured?: boolean
 }
 
 function WhoForDropdown({ whoFor, id }: { whoFor: string; id: string }) {
@@ -28,8 +33,9 @@ function WhoForDropdown({ whoFor, id }: { whoFor: string; id: string }) {
         onClick={() => setIsOpen(!isOpen)}
         className="flex items-center gap-3 text-base md:text-lg font-semibold text-brownDeep mb-3 hover:text-olive transition-all duration-300 w-full text-left group"
         aria-expanded={isOpen}
+        aria-controls={id}
       >
-        <span 
+        <span
           className={`text-xl md:text-2xl font-light transition-all duration-300 ease-in-out inline-block ${
             isOpen ? 'rotate-90 text-olive' : 'rotate-0 group-hover:scale-110'
           }`}
@@ -39,53 +45,60 @@ function WhoForDropdown({ whoFor, id }: { whoFor: string; id: string }) {
         <span className="flex-1">Who this is for</span>
       </button>
       <div
+        id={id}
         className={`transition-all duration-500 ease-in-out ${
-          isOpen 
-            ? 'max-h-[500px] opacity-100 mb-4' 
-            : 'max-h-0 opacity-0 mb-0 overflow-hidden'
+          isOpen ? 'max-h-[800px] opacity-100 mb-4' : 'max-h-0 opacity-0 mb-0 overflow-hidden'
         }`}
       >
-        <p className="text-brownDeep/80 text-sm leading-relaxed transform transition-all duration-500 ease-in-out">
-          {whoFor.includes("For optimal results") ? (
-            <>
-              {whoFor.split("For optimal results")[0]}
-              <em className="italic">For optimal results{whoFor.split("For optimal results")[1]}</em>
-            </>
-          ) : (
-            whoFor
-          )}
-        </p>
+        <p className="text-brownDeep/80 text-sm leading-relaxed">{whoFor}</p>
       </div>
     </div>
   )
 }
 
 export function ServiceCard({
+  id,
   title,
   duration,
+  tagline,
+  subnote,
   description,
   whoFor,
   features,
   highlights,
   durationOptions,
   packageNote,
+  notice,
+  featured = false,
 }: ServiceCardProps) {
   return (
-    <div className="bg-cream border-l-4 border-orangeBurnt border-t border-r border-b border-navy rounded-lg p-6 md:p-8 space-y-4 hover:shadow-lg transition-shadow duration-200 shadow-sm w-full max-w-full md:max-w-none">
-      <div className="flex justify-between items-start mb-4">
-        <h3 className="font-heading text-xl md:text-2xl text-brownDeep font-bold">
-          {title}
-        </h3>
-        <span className="text-orangeBurnt font-accent text-sm md:text-base font-medium">
+    <div
+      id={id}
+      className={`rounded-lg p-6 md:p-8 space-y-4 hover:shadow-lg transition-shadow duration-200 shadow-sm w-full max-w-full md:max-w-none border-t border-r border-b ${
+        featured
+          ? 'bg-blueSoft/15 border-l-4 border-olive'
+          : 'bg-cream border-l-4 border-orangeBurnt'
+      }`}
+    >
+      <div className="flex justify-between items-start gap-4 mb-4">
+        <h3 className="font-heading text-xl md:text-2xl text-brownDeep font-bold">{title}</h3>
+        <span className="text-orangeBurnt font-accent text-sm md:text-base font-medium text-right whitespace-nowrap">
           {duration}
         </span>
       </div>
+      {tagline && <p className="text-brownDeep/80 italic leading-relaxed">{tagline}</p>}
+      {subnote && <p className="text-brownDeep/80 text-sm leading-relaxed -mt-2">{subnote}</p>}
+      {notice && (
+        <div className="notice-sheen relative overflow-hidden rounded-lg border-l-4 border-navy bg-blueSoft px-5 py-4 pl-12 text-left text-sm md:text-base leading-relaxed text-navy font-medium shadow-md">
+          <span aria-hidden="true" className="notice-beacon absolute left-5 top-[1.35rem]" />
+          <div className="relative">{notice}</div>
+        </div>
+      )}
       <div className="text-brownDeep leading-relaxed text-base">
         {typeof description === 'string' ? <p>{description}</p> : description}
       </div>
       <div className="pt-4 border-t border-brownDeep space-y-6">
         {durationOptions ? (
-          // Multiple duration options (like The Edit)
           <div className="space-y-6">
             {durationOptions.map((option, index) => (
               <div key={index} className="space-y-3">
@@ -101,40 +114,17 @@ export function ServiceCard({
             ))}
           </div>
         ) : (
-          // Single "Who this is for" (like Heaven + Earth or The Remedy)
           whoFor && (
-            (() => {
-              const whoForText = Array.isArray(whoFor) ? whoFor.join(' ') : whoFor
-              // If it starts with "Who this is for |", display inline (Heaven + Earth)
-              if (whoForText.startsWith('Who this is for |')) {
-                const [, ...rest] = whoForText.split('|')
-                return (
-                  <div>
-                    <p className="text-brownDeep/80 text-sm leading-relaxed">
-                      <strong className="text-brownDeep">Who this is for |</strong>{' '}
-                      {rest.join('|').trim()}
-                    </p>
-                  </div>
-                )
-              }
-              // Otherwise use dropdown (The Remedy)
-              return <WhoForDropdown whoFor={whoForText} id={title} />
-            })()
+            <WhoForDropdown
+              whoFor={Array.isArray(whoFor) ? whoFor.join(' ') : whoFor}
+              id={title}
+            />
           )
         )}
-        {features && features.length > 0 && (
+        {features && (
           <div>
-            <p className="text-base md:text-lg font-semibold text-brownDeep mb-3">Treatment features</p>
-            <ul className="space-y-1">
-              {features.map((feature, index) => (
-                <li
-                  key={index}
-                  className="text-brownDeep/80 text-sm leading-relaxed"
-                >
-                  {feature}
-                </li>
-              ))}
-            </ul>
+            <p className="text-base md:text-lg font-semibold text-brownDeep mb-2">Features</p>
+            <p className="text-brownDeep/80 text-sm leading-relaxed">{features}</p>
           </div>
         )}
         {highlights && (
@@ -146,9 +136,7 @@ export function ServiceCard({
                   if (labelPart && rest.length > 0) {
                     return (
                       <>
-                        <strong className="text-brownDeep">
-                          {labelPart.trim()} |
-                        </strong>{' '}
+                        <strong className="text-brownDeep">{labelPart.trim()} |</strong>{' '}
                         {rest.join('|').trim()}
                       </>
                     )
@@ -163,15 +151,10 @@ export function ServiceCard({
         )}
         {packageNote && (
           <div className="text-brownDeep/80 text-sm leading-relaxed italic">
-            {typeof packageNote === 'string' ? (
-              <p>{packageNote}</p>
-            ) : (
-              packageNote
-            )}
+            {typeof packageNote === 'string' ? <p>{packageNote}</p> : packageNote}
           </div>
         )}
       </div>
     </div>
   )
 }
-

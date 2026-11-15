@@ -1,11 +1,5 @@
-import FAQsContent from '@/components/FAQsContent'
+import { redirect } from 'next/navigation'
 
-export const metadata = {
-  title: 'FAQs | Greenpoint Facialist',
-  description:
-    'Frequently asked questions about Greenpoint Facialist services, booking, and policies.',
-}
-
-export default function FAQsPage() {
-  return <FAQsContent />
+export default function FaqsRedirectPage() {
+  redirect('/about#faqs')
 }

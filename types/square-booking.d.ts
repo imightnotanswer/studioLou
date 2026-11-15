@@ -2,6 +2,7 @@
 declare global {
   interface WindowEventMap {
     openSquareBooking: CustomEvent
+    openWaitlist: CustomEvent
   }
 }
 

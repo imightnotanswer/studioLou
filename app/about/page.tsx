@@ -1,4 +1,5 @@
 import Image from 'next/image'
+import FAQsContent from '@/components/FAQsContent'
 import NeighborhoodGuide from '@/components/NeighborhoodGuide'
 import headshot from '@/app/assets/headshot.jpg'
 
@@ -157,6 +158,10 @@ export default function AboutPage() {
               setting the mood before or after your facial.
             </p>
             <NeighborhoodGuide spots={neighborhoodSpots} />
+          </section>
+
+          <section className="border-t border-brownDeep">
+            <FAQsContent embedded />
           </section>
         </section>
       </div>
