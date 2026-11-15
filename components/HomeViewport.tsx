@@ -1,5 +1,6 @@
 'use client'
 
+import Link from 'next/link'
 import WaterRippleBackground from '@/components/WaterRippleBackground'
 import { openSquareBooking } from '@/components/SquareBookingWidget'
 import blackandwhite from '@/app/assets/blackandwhite.jpg'
@@ -18,6 +19,19 @@ export default function HomeViewport() {
 
         {/* Overlay: does not block pointer events so ripples work everywhere */}
         <div className="absolute inset-0 z-10 pointer-events-none">
+          <Link
+            href="/facials"
+            className="group pointer-events-auto absolute inset-x-0 top-0 flex items-center justify-center gap-x-3 gap-y-1 flex-wrap overflow-hidden bg-olive px-4 py-3 text-center font-accent text-[12px] sm:text-sm uppercase tracking-[0.18em] text-brownDeep shadow-md"
+          >
+            <span className="relative font-semibold">New treatment menu available</span>
+            <span aria-hidden="true" className="relative hidden sm:inline opacity-60">|</span>
+            <span className="relative inline-flex items-center gap-2 border-b border-brownDeep/60 pb-0.5 transition-colors duration-200 group-hover:border-brownDeep">
+              Click here to view
+              <span aria-hidden="true" className="inline-block transition-transform duration-300 group-hover:translate-x-1">
+                →
+              </span>
+            </span>
+          </Link>
           <div className="absolute left-4 bottom-4 sm:left-8 sm:bottom-8">
           <h1
             className="
