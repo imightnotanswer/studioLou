@@ -21,6 +21,7 @@ interface ServiceCardProps {
   durationOptions?: DurationOption[]
   packageNote?: string | React.ReactNode
   notice?: React.ReactNode
+  action?: React.ReactNode
   featured?: boolean
 }
 
@@ -69,6 +70,7 @@ export function ServiceCard({
   durationOptions,
   packageNote,
   notice,
+  action,
   featured = false,
 }: ServiceCardProps) {
   return (
@@ -154,6 +156,7 @@ export function ServiceCard({
             {typeof packageNote === 'string' ? <p>{packageNote}</p> : packageNote}
           </div>
         )}
+        {action && <div className="pt-2">{action}</div>}
       </div>
     </div>
   )

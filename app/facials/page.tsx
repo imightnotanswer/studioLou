@@ -1,7 +1,7 @@
+import Link from 'next/link'
 import { BookingButton } from '@/components/BookingButton'
 import { HeavenEarthNotice } from '@/components/HeavenEarthNotice'
 import { ServiceCard } from '@/components/ServiceCard'
-import { SQUARE_PACKAGES_URL } from '@/lib/siteLinks'
 
 export const metadata = {
   title: 'Facials | Greenpoint Facialist',
@@ -88,14 +88,9 @@ export default function FacialsPage() {
                 <p id="restore-packages" className="mt-4 scroll-mt-28">
                   Skin improves with each session, so a series of three treatments spaced 2-4 weeks apart is
                   recommended for longer lasting improvements in skin firmness, hydration, and texture.{' '}
-                  <a
-                    href={SQUARE_PACKAGES_URL}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className={linkClass}
-                  >
+                  <Link href="/packages#restore-nano-infusion-series" className={linkClass}>
                     See packages
-                  </a>{' '}
+                  </Link>{' '}
                   for more information.
                 </p>
               </>

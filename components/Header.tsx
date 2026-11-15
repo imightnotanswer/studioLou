@@ -5,7 +5,7 @@ import { usePathname } from 'next/navigation'
 import { useState, useEffect, useRef } from 'react'
 import { Button } from '@/components/Button'
 import { openSquareBooking } from '@/components/SquareBookingWidget'
-import { SQUARE_GIFT_CARDS_URL, SQUARE_PACKAGES_URL } from '@/lib/siteLinks'
+import { SQUARE_GIFT_CARDS_URL } from '@/lib/siteLinks'
 
 export function Header() {
   const pathname = usePathname()
@@ -47,7 +47,7 @@ export function Header() {
   const navLinks: { href: string; label: string; external?: boolean }[] = [
     { href: '/', label: 'HOME' },
     { href: '/facials', label: 'FACIALS' },
-    { href: SQUARE_PACKAGES_URL, label: 'PACKAGES', external: true },
+    { href: '/packages', label: 'PACKAGES' },
     { href: '/about', label: 'ABOUT' },
     { href: '/contact', label: 'CONTACT' },
     { href: SQUARE_GIFT_CARDS_URL, label: 'GIFT CARDS', external: true },
