@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import { SpeedInsights } from '@vercel/speed-insights/next'
 import './globals.css'
 import { Layout } from '@/components/Layout'
 import { presicav, acmeGothic, accent } from './fonts'
@@ -32,6 +33,7 @@ export default function RootLayout({
         <Layout>
           {children}
         </Layout>
+        <SpeedInsights />
       </body>
     </html>
   )
